@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Dreamy Cloud Keychain",
+    "type": "Keychain",
+    "description": "Acrylic keychain with a soft pastel cloud design. Perfect for your school bag!",
+    "price": "Rp 15.000",
+    "image_url": "https://placehold.co/400x400/FFB6C1/white?text=Dreamy+Cloud"
+  },
+  {
+    "id": 2,
+    "name": "Cyberpunk Rabbit Pin",
+    "type": "Pin",
+    "description": "Enamel pin featuring a futuristic rabbit with neon accents.",
+    "price": "Rp 25.000",
+    "image_url": "https://placehold.co/400x400/A7C7E7/white?text=Cyberpunk+Rabbit"
+  },
+  {
+    "id": 3,
+    "name": "Matcha Latte Keychain",
+    "type": "Keychain",
+    "description": "Cute rubber keychain shaped like a cup of matcha latte.",
+    "price": "Rp 12.000",
+    "image_url": "https://placehold.co/400x400/C1E1C1/white?text=Matcha+Latte"
+  },
+  {
+    "id": 4,
+    "name": "Retro Cassette Pin",
+    "type": "Pin",
+    "description": "Classic 90s cassette tape enamel pin in vibrant colors.",
+    "price": "Rp 20.000",
+    "image_url": "https://placehold.co/400x400/FDFD96/white?text=Retro+Cassette"
+  },
+  {
+    "id": 5,
+    "name": "Space Explorer Keychain",
+    "type": "Keychain",
+    "description": "High-quality metal keychain for all the stargazers out there.",
+    "price": "Rp 18.000",
+    "image_url": "https://placehold.co/400x400/B19CD9/white?text=Space+Explorer"
+  },
+  {
+    "id": 6,
+    "name": "Y2K Star Pin",
+    "type": "Pin",
+    "description": "Shining silver star pin with a glossy finish. Trendy and cool.",
+    "price": "Rp 22.000",
+    "image_url": "https://placehold.co/400x400/FFD1DC/white?text=Y2K+Star"
+  }
+]

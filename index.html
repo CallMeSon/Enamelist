@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENAMELIST | Keychain & Enamel Pin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="antialiased">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 w-full z-50 transition-all duration-300 glass-morphism py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <h1 class="text-3xl font-black tracking-tighter text-pastel-pink">ENAMELIST</h1>
+            <nav class="hidden md:flex space-x-8 font-semibold text-gray-700">
+                <a href="#hero" class="hover:text-pastel-pink transition-colors">Home</a>
+                <a href="#about" class="hover:text-pastel-pink transition-colors">Why Us</a>
+                <a href="#katalog" class="hover:text-pastel-pink transition-colors">Catalog</a>
+                <a href="#cara-pesan" class="hover:text-pastel-pink transition-colors">Order</a>
+            </nav>
+            <a href="#katalog" class="bg-pastel-pink text-white px-6 py-2 rounded-full font-bold shadow-lg hover:bg-pastel-pink-dark transition-all transform hover:scale-105">
+                Cek Produk
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="pt-32 pb-20 md:pt-48 md:pb-32 hero-gradient overflow-hidden">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8 animate-fade-in-up">
+                <span class="inline-block bg-white/30 backdrop-blur-md px-4 py-1 rounded-full text-sm font-bold text-white uppercase tracking-widest shadow-sm">New Collection Available ✨</span>
+                <h2 class="text-5xl md:text-7xl font-black text-white leading-tight">
+                    Ekspresikan Dirimu dengan Aksesori Estetik!
+                </h2>
+                <p class="text-lg md:text-xl text-white/90 max-w-lg leading-relaxed">
+                    Keychain dan Pin Enamel Custom berkualitas dengan desain orisinal yang mewakili identitas komunitasmu. Harga pelajar, hasil profesional.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="#katalog" class="bg-white text-pastel-pink px-10 py-4 rounded-2xl font-black text-lg text-center shadow-2xl hover:bg-gray-50 transition-all transform hover:-translate-y-1">
+                        Pesan Sekarang
+                    </a>
+                </div>
+            </div>
+            <div class="relative hidden md:block">
+                <div class="absolute -top-20 -right-20 w-96 h-96 bg-pastel-yellow/30 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-pastel-purple/30 rounded-full blur-3xl"></div>
+                <img src="https://placehold.co/600x600/white/FFB6C1?text=ENAMELIST+Products" alt="ENAMELIST Showcase" class="relative z-10 w-full h-auto rounded-3xl shadow-2xl animate-float border-8 border-white/20">
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section id="about" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 space-y-4">
+                <h3 class="text-4xl md:text-5xl font-black text-gray-800">Kenapa Harus ENAMELIST?</h3>
+                <div class="w-24 h-2 bg-pastel-pink mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="p-10 rounded-3xl bg-pastel-blue/10 border border-pastel-blue/20 space-y-6 hover:bg-pastel-blue/20 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-4xl">✨</div>
+                    <h4 class="text-2xl font-bold text-gray-800">Desain Unik & Orisinal</h4>
+                    <p class="text-gray-600 leading-relaxed">Resonan dengan nilai personal dan tren pop culture anak muda yang up-to-date.</p>
+                </div>
+                <div class="p-10 rounded-3xl bg-pastel-yellow/10 border border-pastel-yellow/20 space-y-6 hover:bg-pastel-yellow/20 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-4xl">💸</div>
+                    <h4 class="text-2xl font-bold text-gray-800">Harga Terjangkau</h4>
+                    <p class="text-gray-600 leading-relaxed">Kualitas tinggi yang pas di kantong pelajar dan mahasiswa tanpa kompromi.</p>
+                </div>
+                <div class="p-10 rounded-3xl bg-pastel-green/10 border border-pastel-green/20 space-y-6 hover:bg-pastel-green/20 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-4xl">📱</div>
+                    <h4 class="text-2xl font-bold text-gray-800">Pesan Super Praktis</h4>
+                    <p class="text-gray-600 leading-relaxed">Alur pemesanan digital yang rapi, 100% online tanpa ribet melalui smartphone-mu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Katalog Produk (Area Dinamis) -->
+    <section id="katalog" class="py-24 bg-off-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="space-y-4">
+                    <h3 class="text-4xl md:text-5xl font-black text-gray-800">Koleksi Kami</h3>
+                    <p class="text-gray-600 max-w-md">Pilih desain favoritmu atau request custom untuk kebutuhan komunitasmu!</p>
+                </div>
+                <div class="flex gap-2">
+                    <button class="filter-btn px-6 py-2 rounded-full bg-pastel-pink text-white font-bold shadow-md" data-category="all">Semua</button>
+                    <button class="filter-btn px-6 py-2 rounded-full bg-white text-gray-600 font-bold hover:bg-gray-100 transition-colors" data-category="keychain">Keychain</button>
+                    <button class="filter-btn px-6 py-2 rounded-full bg-white text-gray-600 font-bold hover:bg-gray-100 transition-colors" data-category="pin">Pin</button>
+                </div>
+            </div>
+            
+            <!-- Dynamic Container -->
+            <div id="product-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                <!-- Data will be rendered here by script.js -->
+                <div class="col-span-full py-20 flex justify-center">
+                    <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-pastel-pink"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cara Pemesanan -->
+    <section id="cara-pesan" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto rounded-[3rem] bg-gray-900 text-white p-12 md:p-20 relative overflow-hidden shadow-2xl">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-pastel-pink/10 rounded-full -mr-20 -mt-20 blur-3xl"></div>
+                <div class="relative z-10">
+                    <div class="text-center mb-16">
+                        <h3 class="text-3xl md:text-4xl font-black mb-4">Cara Mudah Pesan ENAMELIST</h3>
+                        <p class="text-gray-400">Ikuti 3 langkah praktis ini untuk mendapatkan aksesori impianmu!</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-12">
+                        <div class="text-center space-y-6">
+                            <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto border border-white/20">1</div>
+                            <h5 class="font-bold text-xl">Pilih & Isi Form</h5>
+                            <p class="text-gray-400 text-sm leading-relaxed">Kunjungi katalog dan isi form pemesanan dengan detail produk yang diinginkan.</p>
+                        </div>
+                        <div class="text-center space-y-6">
+                            <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto border border-white/20">2</div>
+                            <h5 class="font-bold text-xl">Konfirmasi WA</h5>
+                            <p class="text-gray-400 text-sm leading-relaxed">Terhubung dengan tim kami via WhatsApp untuk validasi pesanan dan pembayaran.</p>
+                        </div>
+                        <div class="text-center space-y-6">
+                            <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto border border-white/20">3</div>
+                            <h5 class="font-bold text-xl">Tunggu Di Rumah</h5>
+                            <p class="text-gray-400 text-sm leading-relaxed">Pesanan diproses dengan teliti dan dikirim langsung ke alamat tujuanmu.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-20 text-center">
+                        <a href="https://forms.google.com/your-form-link" target="_blank" class="inline-block bg-pastel-pink hover:bg-pastel-pink-dark text-white px-12 py-5 rounded-2xl font-black text-xl shadow-xl transition-all transform hover:scale-105 active:scale-95">
+                            📝 Isi Form Pemesanan
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layanan Pelanggan (Contact / Footer) -->
+    <footer class="bg-off-white pt-24 pb-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 mb-20 items-center">
+                <div class="space-y-8">
+                    <h3 class="text-4xl font-black text-gray-800">Ada Pertanyaan atau Ingin Pesan Massal?</h3>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Kami menerima pesanan skala besar untuk organisasi, himpunan, atau event spesialmu dengan harga khusus yang jauh lebih hemat!
+                    </p>
+                    <a href="https://wa.me/your-whatsapp-number" target="_blank" class="inline-flex items-center gap-4 bg-[#25D366] text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:opacity-90 transition-all transform hover:-translate-y-1">
+                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-2.31 0-4.189 1.879-4.189 4.189 0 .546.105 1.071.309 1.55l-1.464 4.39 4.49-1.43c.42.164.872.25 1.341.25 2.31 0 4.189-1.879 4.189-4.189 0-2.31-1.879-4.189-4.189-4.189zm3.567 5.92c-.1.25-.567.437-.8.473-.233.037-.467.06-.733.06-.266 0-.6-.046-1.033-.223-.433-.177-1.1-.537-1.733-1.166-.633-.633-1.067-1.2-1.233-1.6-.167-.4-.033-.633.1-.767.133-.133.267-.3.4-.433.133-.133.167-.233.267-.4.1-.167.067-.333 0-.467-.067-.133-.567-1.367-.767-1.833-.233-.5-.467-.433-.633-.433-.167 0-.367 0-.567 0-.2 0-.533.067-.8.367-.267.3-.8 1.033-.8 2.533s1.1 2.933 1.233 3.133c.133.2 2.167 3.3 5.233 4.633.733.3 1.3.467 1.733.6.733.233 1.4.2 1.933.133.6-.1 1.233-.5 1.5-1 .267-.5.267-.933.2-.1-.067-.1-.233-.167-.5-.3zM12 2C6.48 2 2 6.48 2 12c0 2.17.7 4.19 1.9 5.86L2 22l4.28-1.78C7.88 21.37 9.86 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.84 0-3.55-.54-5-1.46l-.36-.21-2.48.83.84-2.52-.23-.37C3.84 15.55 3 13.84 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z"/></svg>
+                        💬 Chat PIC via WhatsApp
+                    </a>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="h-48 rounded-3xl bg-pastel-pink/20 border border-pastel-pink/30 flex items-center justify-center text-pastel-pink font-bold">Insta Feed #1</div>
+                    <div class="h-48 rounded-3xl bg-pastel-blue/20 border border-pastel-blue/30 flex items-center justify-center text-pastel-blue font-bold">Insta Feed #2</div>
+                    <div class="h-48 rounded-3xl bg-pastel-yellow/20 border border-pastel-yellow/30 flex items-center justify-center text-pastel-yellow font-bold">Insta Feed #3</div>
+                    <div class="h-48 rounded-3xl bg-pastel-green/20 border border-pastel-green/30 flex items-center justify-center text-pastel-green font-bold">Insta Feed #4</div>
+                </div>
+            </div>
+            
+            <hr class="border-gray-200 mb-12">
+            
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="text-2xl font-black text-pastel-pink">ENAMELIST</div>
+                <div class="flex space-x-8 text-gray-500 font-bold uppercase tracking-widest text-xs">
+                    <a href="#" class="hover:text-pastel-pink transition-colors">TikTok</a>
+                    <a href="#" class="hover:text-pastel-pink transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-pastel-pink transition-colors">Twitter</a>
+                </div>
+                <div class="text-gray-400 text-sm">
+                    Copyright &copy; 2026 ENAMELIST. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/your-whatsapp-number" target="_blank" class="floating-wa bg-[#25D366] p-4 rounded-2xl shadow-2xl">
+        <svg class="w-8 h-8 fill-white" viewBox="0 0 24 24"><path d="M12.031 6.172c-2.31 0-4.189 1.879-4.189 4.189 0 .546.105 1.071.309 1.55l-1.464 4.39 4.49-1.43c.42.164.872.25 1.341.25 2.31 0 4.189-1.879 4.189-4.189 0-2.31-1.879-4.189-4.189-4.189zm3.567 5.92c-.1.25-.567.437-.8.473-.233.037-.467.06-.733.06-.266 0-.6-.046-1.033-.223-.433-.177-1.1-.537-1.733-1.166-.633-.633-1.067-1.2-1.233-1.6-.167-.4-.033-.633.1-.767.133-.133.267-.3.4-.433.133-.133.167-.233.267-.4.1-.167.067-.333 0-.467-.067-.133-.567-1.367-.767-1.833-.233-.5-.467-.433-.633-.433-.167 0-.367 0-.567 0-.2 0-.533.067-.8.367-.267.3-.8 1.033-.8 2.533s1.1 2.933 1.233 3.133c.133.2 2.167 3.3 5.233 4.633.733.3 1.3.467 1.733.6.733.233 1.4.2 1.933.133.6-.1 1.233-.5 1.5-1 .267-.5.267-.933.2-.1-.067-.1-.233-.167-.5-.3zM12 2C6.48 2 2 6.48 2 12c0 2.17.7 4.19 1.9 5.86L2 22l4.28-1.78C7.88 21.37 9.86 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.84 0-3.55-.54-5-1.46l-.36-.21-2.48.83.84-2.52-.23-.37C3.84 15.55 3 13.84 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z"/></svg>
+    </a>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
