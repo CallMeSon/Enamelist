@@ -9,6 +9,7 @@
     --pastel-green: #38B000;
     --pastel-purple: #7209B7;
     --off-white: #F8F9FA;
+    --dark-bg: #0F172A;
 }
 
 body {
@@ -36,6 +37,11 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.dark .glass-morphism {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .floating-wa {
     position: fixed;
     bottom: 30px;
@@ -52,6 +58,10 @@ body {
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
 }
 
+.dark .card-shadow {
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
@@ -59,6 +69,10 @@ body {
 
 ::-webkit-scrollbar-track {
     background: var(--off-white);
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: var(--dark-bg);
 }
 
 ::-webkit-scrollbar-thumb {

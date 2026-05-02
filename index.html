@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -18,6 +19,8 @@
                         'pastel-green': '#38B000',
                         'pastel-purple': '#7209B7',
                         'off-white': '#F8F9FA',
+                        'dark-bg': '#0F172A',
+                        'dark-card': '#1E293B',
                     }
                 }
             }
@@ -25,21 +28,27 @@
     </script>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="antialiased">
+<body class="antialiased transition-colors duration-300 dark:bg-dark-bg">
 
     <!-- Header / Navbar -->
     <header class="fixed top-0 w-full z-50 transition-all duration-300 glass-morphism py-4">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <h1 class="text-3xl font-black tracking-tighter text-pastel-pink">ENAMELIST</h1>
-            <nav class="hidden md:flex space-x-8 font-semibold text-gray-700">
+            <nav class="hidden md:flex space-x-8 font-semibold text-gray-700 dark:text-gray-300">
                 <a href="#hero" class="hover:text-pastel-pink transition-colors">Home</a>
                 <a href="#about" class="hover:text-pastel-pink transition-colors">Why Us</a>
                 <a href="#katalog" class="hover:text-pastel-pink transition-colors">Catalog</a>
                 <a href="#cara-pesan" class="hover:text-pastel-pink transition-colors">Order</a>
             </nav>
-            <a href="#katalog" class="bg-pastel-pink text-white px-6 py-2 rounded-full font-bold shadow-lg hover:bg-pastel-pink-dark transition-all duration-300 transform hover:scale-105">
-                Cek Produk
-            </a>
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-700 dark:text-gray-300">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+                </button>
+                <a href="#katalog" class="bg-pastel-pink text-white px-6 py-2 rounded-full font-bold shadow-lg hover:bg-pastel-pink-dark transition-all duration-300 transform hover:scale-105">
+                    Cek Produk
+                </a>
+            </div>
         </div>
     </header>
 
@@ -69,44 +78,44 @@
     </section>
 
     <!-- Value Proposition -->
-    <section id="about" class="py-24 bg-white">
+    <section id="about" class="py-24 bg-white dark:bg-dark-bg">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 space-y-4">
-                <h3 class="text-4xl md:text-5xl font-black text-gray-800">Kenapa Harus ENAMELIST?</h3>
+                <h3 class="text-4xl md:text-5xl font-black text-gray-800 dark:text-white">Kenapa Harus ENAMELIST?</h3>
                 <div class="w-24 h-2 bg-pastel-pink mx-auto rounded-full"></div>
             </div>
             <div class="grid md:grid-cols-3 gap-10">
-                <div class="p-10 rounded-3xl bg-pastel-blue/10 border border-pastel-blue/20 space-y-6 hover:bg-pastel-blue/20 transition-all duration-300 transform hover:-translate-y-2">
+                <div class="p-10 rounded-3xl bg-pastel-blue/10 border border-pastel-blue/20 space-y-6 hover:bg-pastel-blue/20 transition-all duration-300 transform hover:-translate-y-2 dark:bg-dark-card dark:border-white/10">
                     <div class="text-4xl">✨</div>
-                    <h4 class="text-2xl font-bold text-gray-800">Desain Unik & Orisinal</h4>
-                    <p class="text-gray-600 leading-relaxed">Resonan dengan nilai personal dan tren pop culture anak muda yang up-to-date.</p>
+                    <h4 class="text-2xl font-bold text-gray-800 dark:text-white">Desain Unik & Orisinal</h4>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Resonan dengan nilai personal dan tren pop culture anak muda yang up-to-date.</p>
                 </div>
-                <div class="p-10 rounded-3xl bg-pastel-yellow/10 border border-pastel-yellow/20 space-y-6 hover:bg-pastel-yellow/20 transition-all duration-300 transform hover:-translate-y-2">
+                <div class="p-10 rounded-3xl bg-pastel-yellow/10 border border-pastel-yellow/20 space-y-6 hover:bg-pastel-yellow/20 transition-all duration-300 transform hover:-translate-y-2 dark:bg-dark-card dark:border-white/10">
                     <div class="text-4xl">💸</div>
-                    <h4 class="text-2xl font-bold text-gray-800">Harga Terjangkau</h4>
-                    <p class="text-gray-600 leading-relaxed">Kualitas tinggi yang pas di kantong pelajar dan mahasiswa tanpa kompromi.</p>
+                    <h4 class="text-2xl font-bold text-gray-800 dark:text-white">Harga Terjangkau</h4>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Kualitas tinggi yang pas di kantong pelajar dan mahasiswa tanpa kompromi.</p>
                 </div>
-                <div class="p-10 rounded-3xl bg-pastel-green/10 border border-pastel-green/20 space-y-6 hover:bg-pastel-green/20 transition-all duration-300 transform hover:-translate-y-2">
+                <div class="p-10 rounded-3xl bg-pastel-green/10 border border-pastel-green/20 space-y-6 hover:bg-pastel-green/20 transition-all duration-300 transform hover:-translate-y-2 dark:bg-dark-card dark:border-white/10">
                     <div class="text-4xl">📱</div>
-                    <h4 class="text-2xl font-bold text-gray-800">Pesan Super Praktis</h4>
-                    <p class="text-gray-600 leading-relaxed">Alur pemesanan digital yang rapi, 100% online tanpa ribet melalui smartphone-mu.</p>
+                    <h4 class="text-2xl font-bold text-gray-800 dark:text-white">Pesan Super Praktis</h4>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Alur pemesanan digital yang rapi, 100% online tanpa ribet melalui smartphone-mu.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Katalog Produk (Area Dinamis) -->
-    <section id="katalog" class="py-24 bg-off-white">
+    <section id="katalog" class="py-24 bg-off-white dark:bg-dark-bg">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                 <div class="space-y-4">
-                    <h3 class="text-4xl md:text-5xl font-black text-gray-800">Koleksi Kami</h3>
-                    <p class="text-gray-600 max-w-md">Pilih desain favoritmu atau request custom untuk kebutuhan komunitasmu!</p>
+                    <h3 class="text-4xl md:text-5xl font-black text-gray-800 dark:text-white">Koleksi Kami</h3>
+                    <p class="text-gray-600 dark:text-gray-400 max-w-md">Pilih desain favoritmu atau request custom untuk kebutuhan komunitasmu!</p>
                 </div>
                 <div class="flex gap-2">
                     <button class="filter-btn px-6 py-2 rounded-full bg-pastel-pink text-white font-bold shadow-md hover:bg-pastel-pink-dark transition-colors" data-category="all">Semua</button>
-                    <button class="filter-btn px-6 py-2 rounded-full bg-white text-gray-600 font-bold hover:bg-gray-100 transition-colors" data-category="keychain">Keychain</button>
-                    <button class="filter-btn px-6 py-2 rounded-full bg-white text-gray-600 font-bold hover:bg-gray-100 transition-colors" data-category="pin">Pin</button>
+                    <button class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-dark-card text-gray-600 dark:text-gray-400 font-bold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" data-category="keychain">Keychain</button>
+                    <button class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-dark-card text-gray-600 dark:text-gray-400 font-bold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" data-category="pin">Pin</button>
                 </div>
             </div>
             
@@ -121,9 +130,9 @@
     </section>
 
     <!-- Cara Pemesanan -->
-    <section id="cara-pesan" class="py-24 bg-white">
+    <section id="cara-pesan" class="py-24 bg-white dark:bg-dark-bg">
         <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto rounded-[3rem] bg-gray-900 text-white p-12 md:p-20 relative overflow-hidden shadow-2xl">
+            <div class="max-w-4xl mx-auto rounded-[3rem] bg-gray-900 text-white p-12 md:p-20 relative overflow-hidden shadow-2xl dark:bg-dark-card">
                 <div class="absolute top-0 right-0 w-64 h-64 bg-pastel-pink/10 rounded-full -mr-20 -mt-20 blur-3xl"></div>
                 <div class="relative z-10">
                     <div class="text-center mb-16">
@@ -160,12 +169,12 @@
     </section>
 
     <!-- Layanan Pelanggan (Contact / Footer) -->
-    <footer class="bg-off-white pt-24 pb-12">
+    <footer class="bg-off-white dark:bg-dark-bg pt-24 pb-12 transition-colors duration-300">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-16 mb-20 items-center">
                 <div class="space-y-8">
-                    <h3 class="text-4xl font-black text-gray-800">Ada Pertanyaan atau Ingin Pesan Massal?</h3>
-                    <p class="text-lg text-gray-600 leading-relaxed">
+                    <h3 class="text-4xl font-black text-gray-800 dark:text-white">Ada Pertanyaan atau Ingin Pesan Massal?</h3>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
                         Kami menerima pesanan skala besar untuk organisasi, himpunan, atau event spesialmu dengan harga khusus yang jauh lebih hemat!
                     </p>
                     <a href="https://wa.me/your-whatsapp-number" target="_blank" class="inline-flex items-center gap-4 bg-[#25D366] text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:opacity-90 transition-all transform hover:-translate-y-1">
@@ -181,7 +190,7 @@
                 </div>
             </div>
             
-            <hr class="border-gray-200 mb-12">
+            <hr class="border-gray-200 dark:border-gray-800 mb-12">
             
             <div class="flex flex-col md:flex-row justify-between items-center gap-8">
                 <div class="text-2xl font-black text-pastel-pink">ENAMELIST</div>
