@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
 
 :root {
-    --pastel-pink: #FFB6C1;
-    --pastel-pink-dark: #FF9AA2;
-    --pastel-blue: #A7C7E7;
-    --pastel-blue-dark: #8EAFC1;
-    --pastel-yellow: #FDFD96;
-    --pastel-green: #C1E1C1;
-    --pastel-purple: #B19CD9;
-    --off-white: #FAFAFA;
+    --pastel-pink: #FF4D6D;
+    --pastel-pink-dark: #E01E37;
+    --pastel-blue: #4CC9F0;
+    --pastel-blue-dark: #4361EE;
+    --pastel-yellow: #FFD60A;
+    --pastel-green: #38B000;
+    --pastel-purple: #7209B7;
+    --off-white: #F8F9FA;
 }
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     background-color: var(--off-white);
-    color: #333;
+    color: #1A1A1A;
     scroll-behavior: smooth;
 }
 
@@ -26,7 +26,7 @@ body {
 .bg-pastel-green { background-color: var(--pastel-green); }
 
 .hero-gradient {
-    background: linear-gradient(135deg, #FFB6C1 0%, #A7C7E7 100%);
+    background: linear-gradient(135deg, #FF4D6D 0%, #4361EE 100%);
 }
 
 .glass-morphism {

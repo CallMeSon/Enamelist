@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ENAMELIST | Keychain & Enamel Pin</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pastel-pink': '#FF4D6D',
+                        'pastel-pink-dark': '#E01E37',
+                        'pastel-blue': '#4CC9F0',
+                        'pastel-blue-dark': '#4361EE',
+                        'pastel-yellow': '#FFD60A',
+                        'pastel-green': '#38B000',
+                        'pastel-purple': '#7209B7',
+                        'off-white': '#F8F9FA',
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="antialiased">
@@ -19,7 +37,7 @@
                 <a href="#katalog" class="hover:text-pastel-pink transition-colors">Catalog</a>
                 <a href="#cara-pesan" class="hover:text-pastel-pink transition-colors">Order</a>
             </nav>
-            <a href="#katalog" class="bg-pastel-pink text-white px-6 py-2 rounded-full font-bold shadow-lg hover:bg-pastel-pink-dark transition-all transform hover:scale-105">
+            <a href="#katalog" class="bg-pastel-pink text-white px-6 py-2 rounded-full font-bold shadow-lg hover:bg-pastel-pink-dark transition-all duration-300 transform hover:scale-105">
                 Cek Produk
             </a>
         </div>
@@ -86,7 +104,7 @@
                     <p class="text-gray-600 max-w-md">Pilih desain favoritmu atau request custom untuk kebutuhan komunitasmu!</p>
                 </div>
                 <div class="flex gap-2">
-                    <button class="filter-btn px-6 py-2 rounded-full bg-pastel-pink text-white font-bold shadow-md" data-category="all">Semua</button>
+                    <button class="filter-btn px-6 py-2 rounded-full bg-pastel-pink text-white font-bold shadow-md hover:bg-pastel-pink-dark transition-colors" data-category="all">Semua</button>
                     <button class="filter-btn px-6 py-2 rounded-full bg-white text-gray-600 font-bold hover:bg-gray-100 transition-colors" data-category="keychain">Keychain</button>
                     <button class="filter-btn px-6 py-2 rounded-full bg-white text-gray-600 font-bold hover:bg-gray-100 transition-colors" data-category="pin">Pin</button>
                 </div>
