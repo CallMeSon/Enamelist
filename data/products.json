@@ -1,50 +1,66 @@
 [
   {
     "id": 1,
-    "name": "Dreamy Cloud Keychain",
+    "name": "Metal Benjamins 100 USD",
     "type": "Keychain",
-    "description": "Acrylic keychain with a soft pastel cloud design. Perfect for your school bag!",
+    "description": "Setiap kali kamu mengeluarkan kunci, ada rasa percaya diri dan motivasi instan buat terus produktif. Cocok banget jadi daily reminder kalau kesuksesan finansial sudah dekat di genggamanmu!",
     "price": "Rp 15.000",
-    "image_url": "https://placehold.co/400x400/FFB6C1/white?text=Dreamy+Cloud"
+    "image_url": "assets/images/Product1.png"
   },
   {
     "id": 2,
-    "name": "Cyberpunk Rabbit Pin",
-    "type": "Pin",
-    "description": "Enamel pin featuring a futuristic rabbit with neon accents.",
+    "name": "Apapun Aman",
+    "type": "Keychain",
+    "description": "Gantungan kunci gemas dengan ilustrasi kucing yang tenang menghadap sajadah, membawa pesan pengingat positif bahwa semua urusan akan aman di tangan-Nya. Cocok untuk menemani kunci atau tas harianmu agar hati selalu damai.",
     "price": "Rp 25.000",
-    "image_url": "https://placehold.co/400x400/A7C7E7/white?text=Cyberpunk+Rabbit"
+    "image_url": "assets/images/Product6.png"
   },
   {
     "id": 3,
-    "name": "Matcha Latte Keychain",
+    "name": "Chaos Besties",
     "type": "Keychain",
-    "description": "Cute rubber keychain shaped like a cup of matcha latte.",
+    "description": "Aksesori lucu dengan karakter stickman ekspresif dan penuh drama yang siap menghidupkan suasana tas atau tempat kuncimu. Pilihan pas untuk kamu yang menyukai humor receh atau ingin kembaran dengan sahabat karib.",
     "price": "Rp 12.000",
-    "image_url": "https://placehold.co/400x400/C1E1C1/white?text=Matcha+Latte"
+    "image_url": "assets/images/Product8.png"
   },
   {
     "id": 4,
-    "name": "Retro Cassette Pin",
-    "type": "Pin",
-    "description": "Classic 90s cassette tape enamel pin in vibrant colors.",
+    "name": "Pixel Buddy",
+    "type": "Keychain",
+    "description": "Gantungan kunci berdesain pixel art monokrom klasik yang memberikan kesan retro, simpel, namun tetap estetik. Sempurna untuk menambah sentuhan unik bin misterius pada koleksi barang bawaan serumu.",
     "price": "Rp 20.000",
-    "image_url": "https://placehold.co/400x400/FDFD96/white?text=Retro+Cassette"
+    "image_url": "assets/images/Product7.png"
   },
   {
     "id": 5,
-    "name": "Space Explorer Keychain",
+    "name": "White Cat Bread Loaf",
     "type": "Keychain",
-    "description": "High-quality metal keychain for all the stargazers out there.",
+    "description": "Gantungan kunci akrilik yang menampilkan ekspresi pasrah seekor kucing putih bermata sayu yang terjebak di dalam sepotong roti tawar. Aksesori yang pas untuk memberikan kesan gemas sekaligus kocak pada tas atau kunci Anda.",
     "price": "Rp 18.000",
-    "image_url": "https://placehold.co/400x400/B19CD9/white?text=Space+Explorer"
+    "image_url": "assets/images/Product2.png"
   },
   {
     "id": 6,
-    "name": "Y2K Star Pin",
-    "type": "Pin",
-    "description": "Shining silver star pin with a glossy finish. Trendy and cool.",
+    "name": "Tabby Cat Ear-Loaf",
+    "type": "Keychain",
+    "description": "Tampil unik dengan gantungan kunci kucing tabby (belang) lengkap dengan potongan roti yang sengaja dibentuk mengikuti telinga runcingnya. Tatapan matanya yang tajam di balik lubang roti dijamin bikin siapa saja yang melihatnya salah fokus.",
     "price": "Rp 22.000",
-    "image_url": "https://placehold.co/400x400/FFD1DC/white?text=Y2K+Star"
+    "image_url": "assets/images/Product3.png"
+  },
+  {
+    "id": 7,
+    "name": "Arching Orange Cat Stretch",
+    "type": "Keychain",
+    "description": "Berbeda dari yang lain, gantungan kunci ini menampilkan pose ikonik kucing oranye yang sedang meregangkan badan (stretching) dengan punggung melengkung tinggi. Pilihan sempurna untuk pencinta kucing oren yang ingin memamerkan tingkah ajaib peliharaannya.",
+    "price": "Rp 17.000",
+    "image_url": "assets/images/Product4.png"
+  },
+  {
+    "id": 8,
+    "name": "Smug Orange Cat Bread",
+    "type": "Keychain",
+    "description": "Gantungan kunci super menggemaskan yang memperlihatkan wajah puas dan tersenyum licik (smug) dari seekor kucing oranye di dalam sepotong roti. Ekspresi wajahnya yang penuh kemenangan ini siap mencerahkan hari-hari Anda yang monoton.",
+    "price": "Rp 17.000",
+    "image_url": "assets/images/Product5.png"
   }
 ]

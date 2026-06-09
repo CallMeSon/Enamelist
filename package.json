@@ -1,0 +1,14 @@
+{
+  "name": "enamelist-mvp",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve",
+    "build": "npm run build:css",
+    "build:css": "tailwindcss -c tailwind.config.cjs -i ./css/tailwind-input.css -o ./css/tailwind.css --minify",
+    "watch:css": "tailwindcss -c tailwind.config.cjs -i ./css/tailwind-input.css -o ./css/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
+

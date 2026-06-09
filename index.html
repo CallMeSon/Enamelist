@@ -1,33 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ENAMELIST | Keychain & Enamel Pin</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        'pastel-pink': '#FF4D6D',
-                        'pastel-pink-dark': '#E01E37',
-                        'pastel-blue': '#4CC9F0',
-                        'pastel-blue-dark': '#4361EE',
-                        'pastel-yellow': '#FFD60A',
-                        'pastel-green': '#38B000',
-                        'pastel-purple': '#7209B7',
-                        'off-white': '#F8F9FA',
-                        'dark-bg': '#0F172A',
-                        'dark-card': '#1E293B',
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="css/tailwind.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="antialiased transition-colors duration-300 dark:bg-dark-bg">
 
     <!-- Header / Navbar -->
@@ -41,11 +22,19 @@
                 <a href="#cara-pesan" class="hover:text-pastel-pink transition-colors">Order</a>
             </nav>
             <div class="flex items-center gap-4">
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-700 dark:text-gray-300">
-                    <svg id="theme-toggle-dark-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                    <svg id="theme-toggle-light-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+                <button id="theme-toggle"
+                    class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-700 dark:text-gray-300">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z">
+                        </path>
+                    </svg>
                 </button>
-                <a href="#katalog" class="bg-pastel-pink text-white px-6 py-2 rounded-full font-bold shadow-lg hover:bg-pastel-pink-dark transition-all duration-300 transform hover:scale-105">
+                <a href="#katalog"
+                    class="bg-pastel-pink text-white px-6 py-2 rounded-full font-bold shadow-lg hover:bg-pastel-pink-dark transition-all duration-300 transform hover:scale-105">
                     Cek Produk
                 </a>
             </div>
@@ -56,15 +45,19 @@
     <section id="hero" class="pt-32 pb-20 md:pt-48 md:pb-32 hero-gradient overflow-hidden">
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div class="space-y-8 animate-fade-in-up">
-                <span class="inline-block bg-white/30 backdrop-blur-md px-4 py-1 rounded-full text-sm font-bold text-white uppercase tracking-widest shadow-sm">New Collection Available ✨</span>
+                <span
+                    class="inline-block bg-white/30 backdrop-blur-md px-4 py-1 rounded-full text-sm font-bold text-white uppercase tracking-widest shadow-sm">New
+                    Collection Available ✨</span>
                 <h2 class="text-5xl md:text-7xl font-black text-white leading-tight">
                     Ekspresikan Dirimu dengan Aksesori Estetik!
                 </h2>
                 <p class="text-lg md:text-xl text-white/90 max-w-lg leading-relaxed">
-                    Keychain dan Pin Enamel Custom berkualitas dengan desain orisinal yang mewakili identitas komunitasmu. Harga pelajar, hasil profesional.
+                    Keychain dan Pin Enamel Custom berkualitas dengan desain orisinal yang mewakili identitas
+                    komunitasmu. Harga pelajar, hasil profesional.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                    <a href="#katalog" class="bg-white text-pastel-pink px-10 py-4 rounded-2xl font-black text-lg text-center shadow-2xl hover:bg-gray-50 transition-all transform hover:-translate-y-1">
+                    <a href="#katalog"
+                        class="bg-white text-pastel-pink px-10 py-4 rounded-2xl font-black text-lg text-center shadow-2xl hover:bg-gray-50 transition-all transform hover:-translate-y-1">
                         Pesan Sekarang
                     </a>
                 </div>
@@ -72,7 +65,10 @@
             <div class="relative hidden md:block">
                 <div class="absolute -top-20 -right-20 w-96 h-96 bg-pastel-yellow/30 rounded-full blur-3xl"></div>
                 <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-pastel-purple/30 rounded-full blur-3xl"></div>
-                <img src="https://placehold.co/600x600/white/FFB6C1?text=ENAMELIST+Products" alt="ENAMELIST Showcase" class="relative z-10 w-full h-auto rounded-3xl shadow-2xl animate-float border-8 border-white/20">
+                <div class="relative z-10 animate-float">
+                    <img src="assets/images/Product1.png" alt="ENAMELIST Showcase"
+                        class="w-full h-auto rounded-3xl -rotate-45">
+                </div>
             </div>
         </div>
     </section>
@@ -85,20 +81,26 @@
                 <div class="w-24 h-2 bg-pastel-pink mx-auto rounded-full"></div>
             </div>
             <div class="grid md:grid-cols-3 gap-10">
-                <div class="p-10 rounded-3xl bg-pastel-blue/10 border border-pastel-blue/20 space-y-6 hover:bg-pastel-blue/20 transition-all duration-300 transform hover:-translate-y-2 dark:bg-dark-card dark:border-white/10">
+                <div
+                    class="p-10 rounded-3xl bg-pastel-blue/10 border border-pastel-blue/20 space-y-6 hover:bg-pastel-blue/20 transition-all duration-300 transform hover:-translate-y-2 dark:bg-dark-card dark:border-white/10">
                     <div class="text-4xl">✨</div>
                     <h4 class="text-2xl font-bold text-gray-800 dark:text-white">Desain Unik & Orisinal</h4>
-                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Resonan dengan nilai personal dan tren pop culture anak muda yang up-to-date.</p>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Resonan dengan nilai personal dan tren
+                        pop culture anak muda yang up-to-date.</p>
                 </div>
-                <div class="p-10 rounded-3xl bg-pastel-yellow/10 border border-pastel-yellow/20 space-y-6 hover:bg-pastel-yellow/20 transition-all duration-300 transform hover:-translate-y-2 dark:bg-dark-card dark:border-white/10">
+                <div
+                    class="p-10 rounded-3xl bg-pastel-yellow/10 border border-pastel-yellow/20 space-y-6 hover:bg-pastel-yellow/20 transition-all duration-300 transform hover:-translate-y-2 dark:bg-dark-card dark:border-white/10">
                     <div class="text-4xl">💸</div>
                     <h4 class="text-2xl font-bold text-gray-800 dark:text-white">Harga Terjangkau</h4>
-                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Kualitas tinggi yang pas di kantong pelajar dan mahasiswa tanpa kompromi.</p>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Kualitas tinggi yang pas di kantong
+                        pelajar dan mahasiswa tanpa kompromi.</p>
                 </div>
-                <div class="p-10 rounded-3xl bg-pastel-green/10 border border-pastel-green/20 space-y-6 hover:bg-pastel-green/20 transition-all duration-300 transform hover:-translate-y-2 dark:bg-dark-card dark:border-white/10">
+                <div
+                    class="p-10 rounded-3xl bg-pastel-green/10 border border-pastel-green/20 space-y-6 hover:bg-pastel-green/20 transition-all duration-300 transform hover:-translate-y-2 dark:bg-dark-card dark:border-white/10">
                     <div class="text-4xl">📱</div>
                     <h4 class="text-2xl font-bold text-gray-800 dark:text-white">Pesan Super Praktis</h4>
-                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Alur pemesanan digital yang rapi, 100% online tanpa ribet melalui smartphone-mu.</p>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Alur pemesanan digital yang rapi, 100%
+                        online tanpa ribet melalui smartphone-mu.</p>
                 </div>
             </div>
         </div>
@@ -110,15 +112,22 @@
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                 <div class="space-y-4">
                     <h3 class="text-4xl md:text-5xl font-black text-gray-800 dark:text-white">Koleksi Kami</h3>
-                    <p class="text-gray-600 dark:text-gray-400 max-w-md">Pilih desain favoritmu atau request custom untuk kebutuhan komunitasmu!</p>
+                    <p class="text-gray-600 dark:text-gray-400 max-w-md">Pilih desain favoritmu atau request custom
+                        untuk kebutuhan komunitasmu!</p>
                 </div>
-                <div class="flex gap-2">
-                    <button class="filter-btn px-6 py-2 rounded-full bg-pastel-pink text-white font-bold shadow-md hover:bg-pastel-pink-dark transition-colors" data-category="all">Semua</button>
-                    <button class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-dark-card text-gray-600 dark:text-gray-400 font-bold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" data-category="keychain">Keychain</button>
-                    <button class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-dark-card text-gray-600 dark:text-gray-400 font-bold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" data-category="pin">Pin</button>
+                <div class="flex flex-wrap gap-3">
+                    <button
+                        class="filter-btn px-6 py-2 rounded-full bg-pastel-pink text-white font-bold shadow-md hover:bg-pastel-pink-dark transition-colors"
+                        data-category="all">Semua</button>
+                    <button
+                        class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-dark-card text-gray-600 dark:text-gray-400 font-bold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        data-category="keychain">Keychain</button>
+                    <button
+                        class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-dark-card text-gray-600 dark:text-gray-400 font-bold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        data-category="pin">Pin</button>
                 </div>
             </div>
-            
+
             <!-- Dynamic Container -->
             <div id="product-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
                 <!-- Data will be rendered here by script.js -->
@@ -132,35 +141,53 @@
     <!-- Cara Pemesanan -->
     <section id="cara-pesan" class="py-24 bg-white dark:bg-dark-bg">
         <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto rounded-[3rem] bg-gray-900 text-white p-12 md:p-20 relative overflow-hidden shadow-2xl dark:bg-dark-card">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-pastel-pink/10 rounded-full -mr-20 -mt-20 blur-3xl"></div>
+            <div
+                class="max-w-4xl mx-auto rounded-[3rem] bg-gray-900 text-white p-12 md:p-20 relative overflow-hidden shadow-2xl dark:bg-dark-card">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-pastel-pink/10 rounded-full -mr-20 -mt-20 blur-3xl">
+                </div>
                 <div class="relative z-10">
                     <div class="text-center mb-16">
                         <h3 class="text-3xl md:text-4xl font-black mb-4">Cara Mudah Pesan ENAMELIST</h3>
                         <p class="text-gray-400">Ikuti 3 langkah praktis ini untuk mendapatkan aksesori impianmu!</p>
                     </div>
-                    
+
                     <div class="grid md:grid-cols-3 gap-12">
                         <div class="text-center space-y-6">
-                            <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto border border-white/20">1</div>
-                            <h5 class="font-bold text-xl">Pilih & Isi Form</h5>
-                            <p class="text-gray-400 text-sm leading-relaxed">Kunjungi katalog dan isi form pemesanan dengan detail produk yang diinginkan.</p>
+                            <div
+                                class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto border border-white/20">
+                                1</div>
+                            <h4 class="font-bold text-xl">Pilih & Isi Form</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">Kunjungi katalog dan isi form pemesanan
+                                dengan detail produk yang diinginkan.</p>
                         </div>
                         <div class="text-center space-y-6">
-                            <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto border border-white/20">2</div>
-                            <h5 class="font-bold text-xl">Konfirmasi WA</h5>
-                            <p class="text-gray-400 text-sm leading-relaxed">Terhubung dengan tim kami via WhatsApp untuk validasi pesanan dan pembayaran.</p>
+                            <div
+                                class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto border border-white/20">
+                                2</div>
+                            <h4 class="font-bold text-xl">Konfirmasi WA</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">Terhubung dengan tim kami via WhatsApp
+                                untuk validasi pesanan dan pembayaran.</p>
                         </div>
                         <div class="text-center space-y-6">
-                            <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto border border-white/20">3</div>
-                            <h5 class="font-bold text-xl">Tunggu Di Rumah</h5>
-                            <p class="text-gray-400 text-sm leading-relaxed">Pesanan diproses dengan teliti dan dikirim langsung ke alamat tujuanmu.</p>
+                            <div
+                                class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto border border-white/20">
+                                3</div>
+                            <h4 class="font-bold text-xl">Tunggu Di Rumah</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">Pesanan diproses dengan teliti dan dikirim
+                                langsung ke alamat tujuanmu.</p>
                         </div>
                     </div>
-                    
+
                     <div class="mt-20 text-center">
-                        <a href="https://forms.google.com/your-form-link" target="_blank" class="inline-block bg-pastel-pink hover:bg-pastel-pink-dark text-white px-12 py-5 rounded-2xl font-black text-xl shadow-xl transition-all transform hover:scale-105 active:scale-95">
-                            📝 Isi Form Pemesanan
+                        <a href="https://forms.google.com/your-form-link" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center gap-3 bg-pastel-pink hover:bg-pastel-pink-dark text-white px-12 py-5 rounded-2xl font-black text-xl shadow-xl transition-all transform hover:scale-105 active:scale-95">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 7C4 5.11438 4 4.17157 4.58579 3.58579C5.17157 3 6.11438 3 8 3H16C17.8856 3 18.8284 3 19.4142 3.58579C20 4.17157 20 5.11438 20 7V15C20 17.8284 20 19.2426 19.1213 20.1213C18.2426 21 16.8284 21 14 21H10C7.17157 21 5.75736 21 4.87868 20.1213C4 19.2426 4 17.8284 4 15V7Z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M15 18L15 21M9 18L9 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M9 8L15 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M9 12L15 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            Isi Form Pemesanan
                         </a>
                     </div>
                 </div>
@@ -173,25 +200,44 @@
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-16 mb-20 items-center">
                 <div class="space-y-8">
-                    <h3 class="text-4xl font-black text-gray-800 dark:text-white">Ada Pertanyaan atau Ingin Pesan Massal?</h3>
+                    <h3 class="text-4xl font-black text-gray-800 dark:text-white">Ada Pertanyaan atau Ingin Pesan
+                        Massal?</h3>
                     <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-                        Kami menerima pesanan skala besar untuk organisasi, himpunan, atau event spesialmu dengan harga khusus yang jauh lebih hemat!
+                        Kami menerima pesanan skala besar untuk organisasi, himpunan, atau event spesialmu dengan harga
+                        khusus yang jauh lebih hemat!
                     </p>
-                    <a href="https://wa.me/your-whatsapp-number" target="_blank" class="inline-flex items-center gap-4 bg-[#25D366] text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:opacity-90 transition-all transform hover:-translate-y-1">
-                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-2.31 0-4.189 1.879-4.189 4.189 0 .546.105 1.071.309 1.55l-1.464 4.39 4.49-1.43c.42.164.872.25 1.341.25 2.31 0 4.189-1.879 4.189-4.189 0-2.31-1.879-4.189-4.189-4.189zm3.567 5.92c-.1.25-.567.437-.8.473-.233.037-.467.06-.733.06-.266 0-.6-.046-1.033-.223-.433-.177-1.1-.537-1.733-1.166-.633-.633-1.067-1.2-1.233-1.6-.167-.4-.033-.633.1-.767.133-.133.267-.3.4-.433.133-.133.167-.233.267-.4.1-.167.067-.333 0-.467-.067-.133-.567-1.367-.767-1.833-.233-.5-.467-.433-.633-.433-.167 0-.367 0-.567 0-.2 0-.533.067-.8.367-.267.3-.8 1.033-.8 2.533s1.1 2.933 1.233 3.133c.133.2 2.167 3.3 5.233 4.633.733.3 1.3.467 1.733.6.733.233 1.4.2 1.933.133.6-.1 1.233-.5 1.5-1 .267-.5.267-.933.2-.1-.067-.1-.233-.167-.5-.3zM12 2C6.48 2 2 6.48 2 12c0 2.17.7 4.19 1.9 5.86L2 22l4.28-1.78C7.88 21.37 9.86 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.84 0-3.55-.54-5-1.46l-.36-.21-2.48.83.84-2.52-.23-.37C3.84 15.55 3 13.84 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z"/></svg>
-                        💬 Chat PIC via WhatsApp
+                    <a href="https://wa.me/your-whatsapp-number" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-4 bg-whatsapp text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:opacity-90 transition-all transform hover:-translate-y-1">
+                        <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M6.014 8.00613C6.12827 7.1024 7.30277 5.87414 8.23488 6.01043L8.23339 6.00894C9.14051 6.18132 9.85859 7.74261 10.2635 8.44465C10.5504 8.95402 10.3641 9.4701 10.0965 9.68787C9.7355 9.97883 9.17099 10.3803 9.28943 10.7834C9.5 11.5 12 14 13.2296 14.7107C13.695 14.9797 14.0325 14.2702 14.3207 13.9067C14.5301 13.6271 15.0466 13.46 15.5548 13.736C16.3138 14.178 17.0288 14.6917 17.69 15.27C18.0202 15.546 18.0977 15.9539 17.8689 16.385C17.4659 17.1443 16.3003 18.1456 15.4542 17.9421C13.9764 17.5868 8 15.27 6.08033 8.55801C5.97237 8.24048 5.99955 8.12044 6.014 8.00613Z"
+                                fill="currentColor" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M12 23C10.7764 23 10.0994 22.8687 9 22.5L6.89443 23.5528C5.56462 24.2177 4 23.2507 4 21.7639V19.5C1.84655 17.492 1 15.1767 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23ZM6 18.6303L5.36395 18.0372C3.69087 16.4772 3 14.7331 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C11.0143 21 10.552 20.911 9.63595 20.6038L8.84847 20.3397L6 21.7639V18.6303Z"
+                                fill="currentColor" />
+                        </svg>
+                        Chat PIC via WhatsApp
                     </a>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
-                    <div class="h-48 rounded-3xl bg-pastel-pink/20 border border-pastel-pink/30 flex items-center justify-center text-pastel-pink font-bold">Insta Feed #1</div>
-                    <div class="h-48 rounded-3xl bg-pastel-blue/20 border border-pastel-blue/30 flex items-center justify-center text-pastel-blue font-bold">Insta Feed #2</div>
-                    <div class="h-48 rounded-3xl bg-pastel-yellow/20 border border-pastel-yellow/30 flex items-center justify-center text-pastel-yellow font-bold">Insta Feed #3</div>
-                    <div class="h-48 rounded-3xl bg-pastel-green/20 border border-pastel-green/30 flex items-center justify-center text-pastel-green font-bold">Insta Feed #4</div>
+                    <div
+                        class="h-48 rounded-3xl bg-pastel-pink/20 border border-pastel-pink/30 flex items-center justify-center text-pastel-pink font-bold">
+                        Insta Feed #1</div>
+                    <div
+                        class="h-48 rounded-3xl bg-pastel-blue/20 border border-pastel-blue/30 flex items-center justify-center text-pastel-blue font-bold">
+                        Insta Feed #2</div>
+                    <div
+                        class="h-48 rounded-3xl bg-pastel-yellow/20 border border-pastel-yellow/30 flex items-center justify-center text-pastel-yellow font-bold">
+                        Insta Feed #3</div>
+                    <div
+                        class="h-48 rounded-3xl bg-pastel-green/20 border border-pastel-green/30 flex items-center justify-center text-pastel-green font-bold">
+                        Insta Feed #4</div>
                 </div>
             </div>
-            
+
             <hr class="border-gray-200 dark:border-gray-800 mb-12">
-            
+
             <div class="flex flex-col md:flex-row justify-between items-center gap-8">
                 <div class="text-2xl font-black text-pastel-pink">ENAMELIST</div>
                 <div class="flex space-x-8 text-gray-500 font-bold uppercase tracking-widest text-xs">
@@ -207,10 +253,54 @@
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/your-whatsapp-number" target="_blank" class="floating-wa bg-[#25D366] p-4 rounded-2xl shadow-2xl">
-        <svg class="w-8 h-8 fill-white" viewBox="0 0 24 24"><path d="M12.031 6.172c-2.31 0-4.189 1.879-4.189 4.189 0 .546.105 1.071.309 1.55l-1.464 4.39 4.49-1.43c.42.164.872.25 1.341.25 2.31 0 4.189-1.879 4.189-4.189 0-2.31-1.879-4.189-4.189-4.189zm3.567 5.92c-.1.25-.567.437-.8.473-.233.037-.467.06-.733.06-.266 0-.6-.046-1.033-.223-.433-.177-1.1-.537-1.733-1.166-.633-.633-1.067-1.2-1.233-1.6-.167-.4-.033-.633.1-.767.133-.133.267-.3.4-.433.133-.133.167-.233.267-.4.1-.167.067-.333 0-.467-.067-.133-.567-1.367-.767-1.833-.233-.5-.467-.433-.633-.433-.167 0-.367 0-.567 0-.2 0-.533.067-.8.367-.267.3-.8 1.033-.8 2.533s1.1 2.933 1.233 3.133c.133.2 2.167 3.3 5.233 4.633.733.3 1.3.467 1.733.6.733.233 1.4.2 1.933.133.6-.1 1.233-.5 1.5-1 .267-.5.267-.933.2-.1-.067-.1-.233-.167-.5-.3zM12 2C6.48 2 2 6.48 2 12c0 2.17.7 4.19 1.9 5.86L2 22l4.28-1.78C7.88 21.37 9.86 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.84 0-3.55-.54-5-1.46l-.36-.21-2.48.83.84-2.52-.23-.37C3.84 15.55 3 13.84 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z"/></svg>
+    <a href="https://wa.me/your-whatsapp-number" target="_blank" rel="noopener noreferrer"
+        class="floating-wa bg-whatsapp p-4 rounded-2xl shadow-2xl" aria-label="Chat on WhatsApp">
+        <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M6.014 8.00613C6.12827 7.1024 7.30277 5.87414 8.23488 6.01043L8.23339 6.00894C9.14051 6.18132 9.85859 7.74261 10.2635 8.44465C10.5504 8.95402 10.3641 9.4701 10.0965 9.68787C9.7355 9.97883 9.17099 10.3803 9.28943 10.7834C9.5 11.5 12 14 13.2296 14.7107C13.695 14.9797 14.0325 14.2702 14.3207 13.9067C14.5301 13.6271 15.0466 13.46 15.5548 13.736C16.3138 14.178 17.0288 14.6917 17.69 15.27C18.0202 15.546 18.0977 15.9539 17.8689 16.385C17.4659 17.1443 16.3003 18.1456 15.4542 17.9421C13.9764 17.5868 8 15.27 6.08033 8.55801C5.97237 8.24048 5.99955 8.12044 6.014 8.00613Z"
+                fill="currentColor" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M12 23C10.7764 23 10.0994 22.8687 9 22.5L6.89443 23.5528C5.56462 24.2177 4 23.2507 4 21.7639V19.5C1.84655 17.492 1 15.1767 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23ZM6 18.6303L5.36395 18.0372C3.69087 16.4772 3 14.7331 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C11.0143 21 10.552 20.911 9.63595 20.6038L8.84847 20.3397L6 21.7639V18.6303Z"
+                fill="currentColor" />
+        </svg>
     </a>
+    <!-- Modal Pop-up (Belum Tersedia) -->
+    <div id="form-unavailable-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div id="modal-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300"></div>
+        
+        <!-- Modal Content Container -->
+        <div id="modal-content" class="relative bg-white dark:bg-dark-bg border border-gray-100 dark:border-white/10 w-full max-w-md p-8 rounded-3xl shadow-2xl transform scale-95 opacity-0 transition-all duration-300 flex flex-col items-center text-center">
+            <!-- Close Button -->
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors" aria-label="Tutup">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+            
+            <!-- Warning / Info Icon -->
+            <div class="w-16 h-16 bg-pastel-pink/10 dark:bg-pastel-pink/20 rounded-2xl flex items-center justify-center text-pastel-pink mb-6">
+                <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                </svg>
+            </div>
+            
+            <!-- Title -->
+            <h4 class="text-2xl font-black text-gray-800 dark:text-white mb-3">Formulir Belum Siap</h4>
+            
+            <!-- Description -->
+            <p class="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+                Tautan Google Form untuk pemesanan produk ini sedang dalam proses persiapan. Mohon maaf atas ketidaknyamanannya dan silakan periksa kembali nanti!
+            </p>
+            
+            <!-- Actions -->
+            <button id="close-modal-btn-secondary" class="w-full bg-pastel-pink hover:bg-pastel-pink-dark text-white py-4 rounded-xl font-bold transition-all shadow-lg shadow-pastel-pink/20">
+                Tutup
+            </button>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
 </body>
+
 </html>
