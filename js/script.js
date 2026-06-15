@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const productsHTML = products.map(product => {
             return `
-                <div class="bg-white dark:bg-dark-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-pastel-blue/20 dark:border-white/10 group flex flex-col h-full">
+                <div class="product-card cursor-pointer bg-white dark:bg-dark-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-pastel-blue/20 dark:border-white/10 group flex flex-col h-full" data-id="${product.id}">
                     <div class="relative overflow-hidden aspect-square">
                         <img src="${product.image_url}" alt="${product.name}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <span class="absolute top-3 left-3 bg-white/90 dark:bg-dark-bg/90 backdrop-blur-sm text-pastel-pink font-bold px-3 py-1 rounded-full text-xs uppercase tracking-wider shadow-sm">
@@ -133,6 +133,66 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Modal Logic for Product Detail
+    const productDetailModal = document.getElementById('product-detail-modal');
+    const productDetailModalContent = document.getElementById('product-modal-content');
+    const closeProductDetailModalButtons = document.querySelectorAll('#close-product-modal-btn, #product-modal-backdrop');
+
+    const modalImage = document.getElementById('modal-product-image');
+    const modalType = document.getElementById('modal-product-type');
+    const modalName = document.getElementById('modal-product-name');
+    const modalDescription = document.getElementById('modal-product-description');
+    const modalPrice = document.getElementById('modal-product-price');
+
+    function openProductDetailModal(product) {
+        if (!productDetailModal || !productDetailModalContent) return;
+
+        modalImage.src = product.image_url;
+        modalImage.alt = product.name;
+        modalType.textContent = product.type;
+        modalName.textContent = product.name;
+        modalDescription.textContent = product.description;
+        modalPrice.textContent = product.price;
+
+        productDetailModal.classList.remove('hidden');
+        productDetailModal.classList.add('flex');
+        setTimeout(() => {
+            productDetailModalContent.classList.remove('scale-95', 'opacity-0');
+            productDetailModalContent.classList.add('scale-100', 'opacity-100');
+        }, 10);
+    }
+
+    function closeProductDetailModal() {
+        if (!productDetailModal || !productDetailModalContent) return;
+        productDetailModalContent.classList.remove('scale-100', 'opacity-100');
+        productDetailModalContent.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => {
+            productDetailModal.classList.remove('flex');
+            productDetailModal.classList.add('hidden');
+        }, 300);
+    }
+
+    closeProductDetailModalButtons.forEach(btn => {
+        btn.addEventListener('click', closeProductDetailModal);
+    });
+
+    // Handle clicking a product card (excluding links inside the card)
+    if (productContainer) {
+        productContainer.addEventListener('click', (e) => {
+            const orderBtn = e.target.closest('a');
+            if (orderBtn) return; // Let the anchor handler handle it
+
+            const card = e.target.closest('.product-card');
+            if (card) {
+                const productId = parseInt(card.getAttribute('data-id'), 10);
+                const product = allProducts.find(p => p.id === productId);
+                if (product) {
+                    openProductDetailModal(product);
+                }
+            }
+        });
+    }
+
     // Modal Logic for Unconfigured/Empty Links
     const formModal = document.getElementById('form-unavailable-modal');
     const formModalContent = document.getElementById('modal-content');
@@ -174,6 +234,37 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Scroll-Reveal: Observe .reveal elements and animate when they enter viewport
+    function initRevealObserver() {
+        const revealEls = document.querySelectorAll('.reveal:not(.is-visible)');
+        if (!revealEls.length) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    // Stagger each element by 80ms
+                    setTimeout(() => {
+                        entry.target.classList.add('is-visible');
+                    }, i * 80);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        revealEls.forEach(el => observer.observe(el));
+    }
+
+    // Re-run observer after products render (to catch dynamically injected cards)
+    const _originalRenderProducts = renderProducts;
+    function renderProductsWithReveal(products) {
+        _originalRenderProducts(products);
+        // Allow DOM to update before observing
+        requestAnimationFrame(() => initRevealObserver());
+    }
+
     // Initialize fetch
     fetchProducts();
+
+    // Initial observer pass for static elements
+    initRevealObserver();
 });

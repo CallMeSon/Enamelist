@@ -44,27 +44,30 @@
     <!-- Hero Section -->
     <section id="hero" class="pt-32 pb-20 md:pt-48 md:pb-32 hero-gradient overflow-hidden">
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-8 animate-fade-in-up">
+            <div class="space-y-8">
                 <span
-                    class="inline-block bg-white/30 backdrop-blur-md px-4 py-1 rounded-full text-sm font-bold text-white uppercase tracking-widest shadow-sm">New
+                    class="animate-fade-in-up delay-1 inline-block bg-white/30 backdrop-blur-md px-4 py-1 rounded-full text-sm font-bold text-white uppercase tracking-widest shadow-sm">New
                     Collection Available ✨</span>
-                <h2 class="text-5xl md:text-7xl font-black text-white leading-tight">
+                <h2 class="animate-fade-in-up delay-2 text-5xl md:text-7xl font-black text-white leading-tight">
                     Ekspresikan Dirimu dengan Aksesori Estetik!
                 </h2>
-                <p class="text-lg md:text-xl text-white/90 max-w-lg leading-relaxed">
+                <p class="animate-fade-in-up delay-3 text-lg md:text-xl text-white/90 max-w-lg leading-relaxed">
                     Keychain dan Pin Enamel Custom berkualitas dengan desain orisinal yang mewakili identitas
                     komunitasmu. Harga pelajar, hasil profesional.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                <div class="animate-fade-in-up delay-4 flex flex-col sm:flex-row gap-4 pt-4">
                     <a href="#katalog"
-                        class="bg-white text-pastel-pink px-10 py-4 rounded-2xl font-black text-lg text-center shadow-2xl hover:bg-gray-50 transition-all transform hover:-translate-y-1">
+                        class="btn-shimmer bg-white text-pastel-pink px-10 py-4 rounded-2xl font-black text-lg text-center shadow-2xl">
                         Pesan Sekarang
                     </a>
                 </div>
             </div>
             <div class="relative hidden md:block">
-                <div class="absolute -top-20 -right-20 w-96 h-96 bg-pastel-yellow/30 rounded-full blur-3xl"></div>
-                <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-pastel-purple/30 rounded-full blur-3xl"></div>
+                <div class="animate-orb absolute -top-20 -right-20 w-96 h-96 bg-pastel-yellow/30 rounded-full blur-3xl">
+                </div>
+                <div
+                    class="animate-orb-alt absolute -bottom-20 -left-20 w-96 h-96 bg-pastel-purple/30 rounded-full blur-3xl">
+                </div>
                 <div class="relative z-10 animate-float">
                     <img src="assets/images/Product1.png" alt="ENAMELIST Showcase"
                         class="w-full h-auto rounded-3xl -rotate-45">
@@ -76,27 +79,27 @@
     <!-- Value Proposition -->
     <section id="about" class="py-24 bg-white dark:bg-dark-bg">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16 space-y-4">
+            <div class="reveal text-center mb-16 space-y-4">
                 <h3 class="text-4xl md:text-5xl font-black text-gray-800 dark:text-white">Kenapa Harus ENAMELIST?</h3>
                 <div class="w-24 h-2 bg-pastel-pink mx-auto rounded-full"></div>
             </div>
             <div class="grid md:grid-cols-3 gap-10">
                 <div
-                    class="p-10 rounded-3xl bg-pastel-blue/10 border border-pastel-blue/20 space-y-6 hover:bg-pastel-blue/20 transition-all duration-300 transform hover:-translate-y-2 dark:bg-dark-card dark:border-white/10">
+                    class="value-card reveal p-10 rounded-3xl bg-pastel-blue/10 border border-pastel-blue/20 space-y-6 hover:bg-pastel-blue/20 dark:bg-dark-card dark:border-white/10">
                     <div class="text-4xl">✨</div>
-                    <h4 class="text-2xl font-bold text-gray-800 dark:text-white">Desain Unik & Orisinal</h4>
+                    <h4 class="text-2xl font-bold text-gray-800 dark:text-white">Desain Unik &amp; Orisinal</h4>
                     <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Resonan dengan nilai personal dan tren
                         pop culture anak muda yang up-to-date.</p>
                 </div>
                 <div
-                    class="p-10 rounded-3xl bg-pastel-yellow/10 border border-pastel-yellow/20 space-y-6 hover:bg-pastel-yellow/20 transition-all duration-300 transform hover:-translate-y-2 dark:bg-dark-card dark:border-white/10">
+                    class="value-card reveal p-10 rounded-3xl bg-pastel-yellow/10 border border-pastel-yellow/20 space-y-6 hover:bg-pastel-yellow/20 dark:bg-dark-card dark:border-white/10">
                     <div class="text-4xl">💸</div>
                     <h4 class="text-2xl font-bold text-gray-800 dark:text-white">Harga Terjangkau</h4>
                     <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Kualitas tinggi yang pas di kantong
                         pelajar dan mahasiswa tanpa kompromi.</p>
                 </div>
                 <div
-                    class="p-10 rounded-3xl bg-pastel-green/10 border border-pastel-green/20 space-y-6 hover:bg-pastel-green/20 transition-all duration-300 transform hover:-translate-y-2 dark:bg-dark-card dark:border-white/10">
+                    class="value-card reveal p-10 rounded-3xl bg-pastel-green/10 border border-pastel-green/20 space-y-6 hover:bg-pastel-green/20 dark:bg-dark-card dark:border-white/10">
                     <div class="text-4xl">📱</div>
                     <h4 class="text-2xl font-bold text-gray-800 dark:text-white">Pesan Super Praktis</h4>
                     <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Alur pemesanan digital yang rapi, 100%
@@ -104,13 +107,14 @@
                 </div>
             </div>
         </div>
+        </div>
     </section>
 
     <!-- Katalog Produk (Area Dinamis) -->
     <section id="katalog" class="py-24 bg-off-white dark:bg-dark-bg">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                <div class="space-y-4">
+                <div class="reveal space-y-4">
                     <h3 class="text-4xl md:text-5xl font-black text-gray-800 dark:text-white">Koleksi Kami</h3>
                     <p class="text-gray-600 dark:text-gray-400 max-w-md">Pilih desain favoritmu atau request custom
                         untuk kebutuhan komunitasmu!</p>
@@ -179,13 +183,16 @@
                     </div>
 
                     <div class="mt-20 text-center">
-                        <a href="https://forms.google.com/your-form-link" target="_blank" rel="noopener noreferrer"
+                        <a href="https://forms.gle/Y4cPztR5CCuDT5b69" target="_blank" rel="noopener noreferrer"
                             class="inline-flex items-center gap-3 bg-pastel-pink hover:bg-pastel-pink-dark text-white px-12 py-5 rounded-2xl font-black text-xl shadow-xl transition-all transform hover:scale-105 active:scale-95">
                             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 7C4 5.11438 4 4.17157 4.58579 3.58579C5.17157 3 6.11438 3 8 3H16C17.8856 3 18.8284 3 19.4142 3.58579C20 4.17157 20 5.11438 20 7V15C20 17.8284 20 19.2426 19.1213 20.1213C18.2426 21 16.8284 21 14 21H10C7.17157 21 5.75736 21 4.87868 20.1213C4 19.2426 4 17.8284 4 15V7Z" stroke="currentColor" stroke-width="2"/>
-                                <path d="M15 18L15 21M9 18L9 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M9 8L15 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M9 12L15 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path
+                                    d="M4 7C4 5.11438 4 4.17157 4.58579 3.58579C5.17157 3 6.11438 3 8 3H16C17.8856 3 18.8284 3 19.4142 3.58579C20 4.17157 20 5.11438 20 7V15C20 17.8284 20 19.2426 19.1213 20.1213C18.2426 21 16.8284 21 14 21H10C7.17157 21 5.75736 21 4.87868 20.1213C4 19.2426 4 17.8284 4 15V7Z"
+                                    stroke="currentColor" stroke-width="2" />
+                                <path d="M15 18L15 21M9 18L9 21" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                                <path d="M9 8L15 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                <path d="M9 12L15 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                             </svg>
                             Isi Form Pemesanan
                         </a>
@@ -206,7 +213,7 @@
                         Kami menerima pesanan skala besar untuk organisasi, himpunan, atau event spesialmu dengan harga
                         khusus yang jauh lebih hemat!
                     </p>
-                    <a href="https://wa.me/your-whatsapp-number" target="_blank" rel="noopener noreferrer"
+                    <a href="https://wa.me/+6282118004921" target="_blank" rel="noopener noreferrer"
                         class="inline-flex items-center gap-4 bg-whatsapp text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:opacity-90 transition-all transform hover:-translate-y-1">
                         <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -253,7 +260,7 @@
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/your-whatsapp-number" target="_blank" rel="noopener noreferrer"
+    <a href="https://wa.me/+6282118004921" target="_blank" rel="noopener noreferrer"
         class="floating-wa bg-whatsapp p-4 rounded-2xl shadow-2xl" aria-label="Chat on WhatsApp">
         <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -264,37 +271,107 @@
                 fill="currentColor" />
         </svg>
     </a>
+    <!-- Modal Pop-up (Product Detail) -->
+    <div id="product-detail-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div id="product-modal-backdrop"
+            class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300"></div>
+
+        <!-- Modal Content Container -->
+        <div id="product-modal-content"
+            class="relative bg-white dark:bg-dark-bg border border-gray-100 dark:border-white/10 w-full max-w-2xl p-6 md:p-8 rounded-3xl shadow-2xl transform scale-95 opacity-0 transition-all duration-300 flex flex-col md:flex-row gap-6 max-h-[90vh] overflow-y-auto md:overflow-visible">
+            <!-- Close Button -->
+            <button id="close-product-modal-btn"
+                class="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/85 dark:bg-dark-bg/85 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors shadow-sm"
+                aria-label="Tutup">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <!-- Product Image Section -->
+            <div
+                class="w-full md:w-1/2 aspect-square rounded-2xl overflow-hidden bg-gray-50 dark:bg-gray-800/50 flex-shrink-0">
+                <img id="modal-product-image" src="" alt="" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Product Details Section -->
+            <div class="w-full md:w-1/2 flex flex-col justify-between">
+                <div class="flex-grow">
+                    <!-- Badge -->
+                    <span id="modal-product-type"
+                        class="inline-block bg-pastel-pink/15 dark:bg-pastel-pink/20 text-pastel-pink font-bold px-3 py-1 rounded-full text-xs uppercase tracking-wider mb-3">
+                        Keychain
+                    </span>
+                    <!-- Title -->
+                    <h4 id="modal-product-name"
+                        class="text-2xl font-black text-gray-800 dark:text-white mb-3 leading-tight">
+                        Product Name
+                    </h4>
+                    <!-- Scrollable Description -->
+                    <div class="max-h-48 md:max-h-60 overflow-y-auto pr-2 mb-4">
+                        <p id="modal-product-description"
+                            class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed whitespace-pre-line">
+                            Product Description
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Footer / Action Area -->
+                <div class="mt-4 pt-4 border-t border-gray-100 dark:border-white/10 flex flex-col gap-3">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400 uppercase font-bold tracking-wider">Harga</span>
+                        <span id="modal-product-price" class="text-2xl font-black text-pastel-pink">Rp 15.000</span>
+                    </div>
+                    <a id="modal-product-order-btn" href="https://forms.google.com/your-form-link" target="_blank"
+                        rel="noopener noreferrer"
+                        class="w-full text-center bg-pastel-blue hover:bg-pastel-blue-dark text-white font-bold py-3 rounded-xl transition-all shadow-lg shadow-pastel-blue/20">
+                        Pesan Sekarang
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal Pop-up (Belum Tersedia) -->
     <div id="form-unavailable-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
         <!-- Backdrop -->
-        <div id="modal-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300"></div>
-        
+        <div id="modal-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300">
+        </div>
+
         <!-- Modal Content Container -->
-        <div id="modal-content" class="relative bg-white dark:bg-dark-bg border border-gray-100 dark:border-white/10 w-full max-w-md p-8 rounded-3xl shadow-2xl transform scale-95 opacity-0 transition-all duration-300 flex flex-col items-center text-center">
+        <div id="modal-content"
+            class="relative bg-white dark:bg-dark-bg border border-gray-100 dark:border-white/10 w-full max-w-md p-8 rounded-3xl shadow-2xl transform scale-95 opacity-0 transition-all duration-300 flex flex-col items-center text-center">
             <!-- Close Button -->
-            <button id="close-modal-btn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors" aria-label="Tutup">
+            <button id="close-modal-btn"
+                class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
+                aria-label="Tutup">
                 <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
-            
+
             <!-- Warning / Info Icon -->
-            <div class="w-16 h-16 bg-pastel-pink/10 dark:bg-pastel-pink/20 rounded-2xl flex items-center justify-center text-pastel-pink mb-6">
+            <div
+                class="w-16 h-16 bg-pastel-pink/10 dark:bg-pastel-pink/20 rounded-2xl flex items-center justify-center text-pastel-pink mb-6">
                 <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
             </div>
-            
+
             <!-- Title -->
             <h4 class="text-2xl font-black text-gray-800 dark:text-white mb-3">Formulir Belum Siap</h4>
-            
+
             <!-- Description -->
             <p class="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-                Tautan Google Form untuk pemesanan produk ini sedang dalam proses persiapan. Mohon maaf atas ketidaknyamanannya dan silakan periksa kembali nanti!
+                Tautan Google Form untuk pemesanan produk ini sedang dalam proses persiapan. Mohon maaf atas
+                ketidaknyamanannya dan silakan periksa kembali nanti!
             </p>
-            
+
             <!-- Actions -->
-            <button id="close-modal-btn-secondary" class="w-full bg-pastel-pink hover:bg-pastel-pink-dark text-white py-4 rounded-xl font-bold transition-all shadow-lg shadow-pastel-pink/20">
+            <button id="close-modal-btn-secondary"
+                class="w-full bg-pastel-pink hover:bg-pastel-pink-dark text-white py-4 rounded-xl font-bold transition-all shadow-lg shadow-pastel-pink/20">
                 Tutup
             </button>
         </div>
