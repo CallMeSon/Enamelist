@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ENAMELIST | Keychain & Enamel Pin</title>
+    <link rel="icon" href="assets/logo.png" type="image/png">
     <link rel="stylesheet" href="css/tailwind.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -14,16 +15,22 @@
     <!-- Header / Navbar -->
     <header class="fixed top-0 w-full z-50 transition-all duration-300 glass-morphism py-4">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <h1 class="text-3xl font-black tracking-tighter text-pastel-pink">ENAMELIST</h1>
+            <h1 class="flex items-center">
+                <a href="#hero" class="flex items-center">
+                    <img src="assets/logo.png" alt="ENAMELIST Logo"
+                        class="h-12 md:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105">
+                </a>
+            </h1>
             <nav class="hidden md:flex space-x-8 font-semibold text-gray-700 dark:text-gray-300">
                 <a href="#hero" class="hover:text-pastel-pink transition-colors">Home</a>
                 <a href="#about" class="hover:text-pastel-pink transition-colors">Why Us</a>
                 <a href="#katalog" class="hover:text-pastel-pink transition-colors">Catalog</a>
+                <a href="#custom-3d" class="hover:text-pastel-pink transition-colors">Custom 3D</a>
                 <a href="#cara-pesan" class="hover:text-pastel-pink transition-colors">Order</a>
             </nav>
             <div class="flex items-center gap-4">
                 <button id="theme-toggle"
-                    class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-700 dark:text-gray-300">
+                    class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 focus-visible:ring-2 focus-visible:ring-pastel-pink focus-visible:outline-none transition-colors text-gray-700 dark:text-gray-300">
                     <svg id="theme-toggle-dark-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                     </svg>
@@ -44,21 +51,24 @@
     <!-- Hero Section -->
     <section id="hero" class="pt-32 pb-20 md:pt-48 md:pb-32 hero-gradient overflow-hidden">
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-8">
+            <div class="space-y-8 max-w-2xl">
                 <span
-                    class="animate-fade-in-up delay-1 inline-block bg-white/30 backdrop-blur-md px-4 py-1 rounded-full text-sm font-bold text-white uppercase tracking-widest shadow-sm">New
-                    Collection Available ✨</span>
-                <h2 class="animate-fade-in-up delay-2 text-5xl md:text-7xl font-black text-white leading-tight">
-                    Ekspresikan Dirimu dengan Aksesori Estetik!
+                    class="animate-fade-in-up delay-1 inline-block bg-white/25 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-white uppercase tracking-[0.2em] shadow-sm">
+                    Bawa Karyamu ke Mana Saja 🚀
+                </span>
+                <h2
+                    class="animate-fade-in-up delay-2 text-[clamp(2.5rem,8vw,4.5rem)] font-black text-white leading-[1.1] tracking-tighter">
+                    Keychain & Pin Custom yang Bikin Tasmu Makin Ikonik
                 </h2>
-                <p class="animate-fade-in-up delay-3 text-lg md:text-xl text-white/90 max-w-lg leading-relaxed">
-                    Keychain dan Pin Enamel Custom berkualitas dengan desain orisinal yang mewakili identitas
-                    komunitasmu. Harga pelajar, hasil profesional.
+                <p
+                    class="animate-fade-in-up delay-3 text-lg md:text-xl text-white/90 max-w-[55ch] leading-relaxed font-medium">
+                    Visualisasikan desainmu dalam 3D, pilih bahan logam favoritmu, dan biarkan kami mewujudkannya. Tanpa
+                    minimal order, pas buat kantong pelajar.
                 </p>
                 <div class="animate-fade-in-up delay-4 flex flex-col sm:flex-row gap-4 pt-4">
-                    <a href="#katalog"
+                    <a href="#custom-3d"
                         class="btn-shimmer bg-white text-pastel-pink px-10 py-4 rounded-2xl font-black text-lg text-center shadow-2xl">
-                        Pesan Sekarang
+                        Mulai Berkreasi
                     </a>
                 </div>
             </div>
@@ -77,10 +87,16 @@
     </section>
 
     <!-- Value Proposition -->
-    <section id="about" class="py-24 bg-white dark:bg-dark-bg">
+    <section id="about" class="py-16 md:py-24 bg-white dark:bg-dark-bg">
         <div class="container mx-auto px-6">
             <div class="reveal text-center mb-16 space-y-4">
-                <h3 class="text-4xl md:text-5xl font-black text-gray-800 dark:text-white">Kenapa Harus ENAMELIST?</h3>
+                <span
+                    class="inline-block bg-white/20 dark:bg-white/10 backdrop-blur-md text-gray-900 dark:text-white font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-[0.2em] shadow-sm border border-black/5 dark:border-white/5">
+                    Kenapa Kami? 🛡️
+                </span>
+                <h3
+                    class="text-4xl md:text-5xl font-black text-gray-900 dark:text-white tracking-tighter leading-tight">
+                    Kenapa Harus ENAMELIST?</h3>
                 <div class="w-24 h-2 bg-pastel-pink mx-auto rounded-full"></div>
             </div>
             <div class="grid md:grid-cols-3 gap-10">
@@ -115,19 +131,25 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                 <div class="reveal space-y-4">
-                    <h3 class="text-4xl md:text-5xl font-black text-gray-800 dark:text-white">Koleksi Kami</h3>
+                    <span
+                        class="inline-block bg-white/20 dark:bg-white/10 backdrop-blur-md text-gray-900 dark:text-white font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-[0.2em] shadow-sm border border-black/5 dark:border-white/5">
+                        Katalog 💎
+                    </span>
+                    <h3
+                        class="text-4xl md:text-5xl font-black text-gray-900 dark:text-white tracking-tighter leading-tight">
+                        Koleksi Kami</h3>
                     <p class="text-gray-600 dark:text-gray-400 max-w-md">Pilih desain favoritmu atau request custom
                         untuk kebutuhan komunitasmu!</p>
                 </div>
                 <div class="flex flex-wrap gap-3">
                     <button
-                        class="filter-btn px-6 py-2 rounded-full bg-pastel-pink text-white font-bold shadow-md hover:bg-pastel-pink-dark transition-colors"
+                        class="filter-btn px-6 py-2 rounded-full bg-pastel-pink text-white font-bold shadow-md hover:bg-pastel-pink-dark focus-visible:ring-2 focus-visible:ring-pastel-pink focus-visible:ring-offset-2 transition-colors"
                         data-category="all">Semua</button>
                     <button
-                        class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-dark-card text-gray-600 dark:text-gray-400 font-bold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-dark-card text-gray-600 dark:text-gray-400 font-bold hover:bg-gray-100 dark:hover:bg-gray-800 focus-visible:ring-2 focus-visible:ring-pastel-pink transition-colors"
                         data-category="keychain">Keychain</button>
                     <button
-                        class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-dark-card text-gray-600 dark:text-gray-400 font-bold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-dark-card text-gray-600 dark:text-gray-400 font-bold hover:bg-gray-100 dark:hover:bg-gray-800 focus-visible:ring-2 focus-visible:ring-pastel-pink transition-colors"
                         data-category="pin">Pin</button>
                 </div>
             </div>
@@ -142,6 +164,177 @@
         </div>
     </section>
 
+    <!-- 3D Keychain Customizer Section -->
+    <section id="custom-3d" class="py-24 bg-white dark:bg-dark-bg transition-colors duration-300 overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="reveal mb-16 space-y-6">
+                <span
+                    class="inline-block bg-pastel-pink/10 dark:bg-white/10 backdrop-blur-md text-pastel-pink dark:text-white font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-[0.2em] shadow-sm">
+                    Fitur Unggulan 🚀
+                </span>
+                <h3
+                    class="text-4xl md:text-6xl font-black text-gray-900 dark:text-white leading-[1.1] tracking-tighter">
+                    3D Keychain Generator
+                </h3>
+                <p class="text-gray-600 dark:text-gray-400 max-w-xl text-lg font-medium">
+                    Bukan sekadar gambar. Visualisasikan desainmu dalam 3D secara real-time dan pesan langsung.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+                <!-- Kolom Kiri: Control Panel -->
+                <div class="lg:col-span-4 space-y-6">
+                    <div
+                        class="bg-off-white dark:bg-dark-card border border-pastel-blue/10 dark:border-white/5 p-8 rounded-[2rem] shadow-sm space-y-8">
+                        <!-- Upload Area -->
+                        <div class="space-y-4">
+                            <label
+                                class="block text-xs font-black uppercase tracking-widest text-gray-500 dark:text-gray-400">1.
+                                Desainmu</label>
+                            <div id="drop-zone" role="button" tabindex="0" aria-label="Unggah Gambar"
+                                class="border-2 border-dashed border-pastel-blue/20 dark:border-white/10 hover:border-pastel-pink dark:hover:border-pastel-pink focus-visible:ring-2 focus-visible:ring-pastel-pink focus-visible:outline-none rounded-2xl p-6 text-center cursor-pointer transition-all bg-white dark:bg-dark-bg/30">
+                                <input type="file" id="image-upload" accept="image/*" class="hidden">
+                                <div class="space-y-3">
+                                    <div class="text-3xl">🖼️</div>
+                                    <div class="text-gray-600 dark:text-gray-300 text-sm font-bold">
+                                        Pilih atau Drop Gambar
+                                    </div>
+                                    <p class="text-[10px] text-gray-400 uppercase tracking-tight">PNG Transparan disukai
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- File Preview status -->
+                            <div id="file-status"
+                                class="hidden flex items-center justify-between bg-pastel-blue/5 dark:bg-pastel-blue/10 px-4 py-3 rounded-xl border border-pastel-blue/10">
+                                <span id="file-name"
+                                    class="font-bold text-xs truncate max-w-[70%] text-gray-700 dark:text-gray-300 text-sm">nama_file.png</span>
+                                <button id="remove-file-btn"
+                                    class="text-pastel-pink text-xs font-black hover:underline uppercase tracking-tighter">Hapus</button>
+                            </div>
+                        </div>
+
+                        <!-- Configuration Group -->
+                        <div class="space-y-6">
+                            <label
+                                class="block text-xs font-black uppercase tracking-widest text-gray-500 dark:text-gray-400">2.
+                                Kustomisasi</label>
+
+                            <!-- Shape Selection -->
+                            <div class="space-y-3">
+                                <span class="text-sm font-bold text-gray-700 dark:text-gray-300">Pola Bingkai</span>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <button type="button"
+                                        class="shape-btn active p-3 rounded-xl border border-pastel-blue/20 bg-pastel-blue/10 text-pastel-blue font-bold text-xs transition-all"
+                                        data-shape="custom">Custom</button>
+                                    <button type="button"
+                                        class="shape-btn p-3 rounded-xl border border-gray-100 dark:border-white/5 bg-white dark:bg-dark-bg text-gray-500 font-bold text-xs transition-all"
+                                        data-shape="circle">Circle</button>
+                                    <button type="button"
+                                        class="shape-btn p-3 rounded-xl border border-gray-100 dark:border-white/5 bg-white dark:bg-dark-bg text-gray-500 font-bold text-xs transition-all"
+                                        data-shape="rectangle">Rounded</button>
+                                    <button type="button"
+                                        class="shape-btn p-3 rounded-xl border border-gray-100 dark:border-white/5 bg-white dark:bg-dark-bg text-gray-500 font-bold text-xs transition-all"
+                                        data-shape="heart">Heart</button>
+                                </div>
+                            </div>
+
+                            <!-- Metal Type -->
+                            <div class="space-y-3">
+                                <span class="text-sm font-bold text-gray-700 dark:text-gray-300">Material Logam</span>
+                                <div class="flex gap-2">
+                                    <button type="button"
+                                        class="metal-btn active w-10 h-10 rounded-full border-2 border-pastel-pink bg-gradient-to-tr from-yellow-600 to-yellow-300 shadow-inner"
+                                        data-metal="gold" title="Gold"></button>
+                                    <button type="button"
+                                        class="metal-btn w-10 h-10 rounded-full border-2 border-transparent bg-gradient-to-tr from-gray-400 to-gray-200 shadow-inner"
+                                        data-metal="silver" title="Silver"></button>
+                                    <button type="button"
+                                        class="metal-btn w-10 h-10 rounded-full border-2 border-transparent bg-gradient-to-tr from-black to-gray-700 shadow-inner"
+                                        data-metal="black" title="Black"></button>
+                                    <button type="button"
+                                        class="metal-btn w-10 h-10 rounded-full border-2 border-transparent bg-gradient-to-tr from-pink-800 to-pink-300 shadow-inner"
+                                        data-metal="rosegold" title="Rose Gold"></button>
+                                </div>
+                            </div>
+
+                            <!-- Thickness -->
+                            <div class="space-y-3">
+                                <div
+                                    class="flex justify-between items-center text-sm font-bold text-gray-700 dark:text-gray-300">
+                                    <span>Ketebalan</span>
+                                    <span id="thickness-val" class="text-pastel-pink text-xs font-black">2.0 mm</span>
+                                </div>
+                                <input type="range" id="thickness-slider" min="0.5" max="2" step="0.5" value="2"
+                                    class="w-full accent-pastel-pink h-1.5 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Kolom Kanan: 3D Visualizer Canvas -->
+                <div
+                    class="lg:col-span-8 group relative bg-off-white dark:bg-dark-card border border-pastel-blue/10 dark:border-white/5 rounded-[2.5rem] shadow-sm overflow-hidden aspect-square lg:aspect-auto lg:h-[700px]">
+                    <!-- Canvas UI Overlays -->
+                    <div class="absolute top-8 left-8 z-10 space-y-2 pointer-events-none">
+                        <div
+                            class="bg-white/80 dark:bg-black/40 backdrop-blur-md text-gray-900 dark:text-white text-[10px] px-3 py-1.5 rounded-full font-black uppercase tracking-widest shadow-sm">
+                            3D Viewer Active
+                        </div>
+                        <div class="flex gap-2">
+                            <span
+                                class="bg-black/5 dark:bg-white/5 backdrop-blur-sm text-gray-500 dark:text-gray-400 text-[9px] px-2.5 py-1 rounded-md font-bold uppercase tracking-tighter">
+                                Drag to Rotate
+                            </span>
+                            <span
+                                class="bg-black/5 dark:bg-white/5 backdrop-blur-sm text-gray-500 dark:text-gray-400 text-[9px] px-2.5 py-1 rounded-md font-bold uppercase tracking-tighter">
+                                Scroll to Zoom
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Reset View Button -->
+                    <button id="reset-3d-btn"
+                        class="absolute top-8 right-8 z-10 p-3 rounded-2xl bg-white dark:bg-dark-bg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-900 dark:text-white shadow-lg border border-gray-100 dark:border-white/5 transition-all transform hover:scale-105 active:scale-95"
+                        title="Reset Pandangan">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg>
+                    </button>
+
+                    <!-- WebGL Canvas Container -->
+                    <div id="canvas-3d-container"
+                        class="w-full h-full bg-gradient-to-b from-gray-50 to-white dark:from-dark-bg dark:to-dark-card flex items-center justify-center relative">
+                        <!-- Placeholder -->
+                        <div id="canvas-placeholder"
+                            class="text-center space-y-6 max-w-sm p-12 transition-opacity duration-500">
+                            <div class="relative inline-block">
+                                <div class="absolute inset-0 bg-pastel-pink/20 blur-3xl rounded-full animate-pulse">
+                                </div>
+                                <div class="relative text-7xl">🎨</div>
+                            </div>
+                            <div class="space-y-2">
+                                <h4 class="text-2xl font-black text-gray-900 dark:text-white tracking-tighter">Siap
+                                    Berkreasi?</h4>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                                    Unggah desainmu di panel kiri untuk memunculkan model 3D yang bisa kamu putar dan
+                                    lihat detailnya.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="canvas-loader"
+                            class="hidden absolute inset-0 bg-white/40 dark:bg-black/40 backdrop-blur-md flex items-center justify-center z-10">
+                            <div class="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-pastel-pink">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Cara Pemesanan -->
     <section id="cara-pesan" class="py-24 bg-white dark:bg-dark-bg">
         <div class="container mx-auto px-6">
@@ -150,8 +343,13 @@
                 <div class="absolute top-0 right-0 w-64 h-64 bg-pastel-pink/10 rounded-full -mr-20 -mt-20 blur-3xl">
                 </div>
                 <div class="relative z-10">
-                    <div class="text-center mb-16">
-                        <h3 class="text-3xl md:text-4xl font-black mb-4">Cara Mudah Pesan ENAMELIST</h3>
+                    <div class="text-center mb-16 space-y-4">
+                        <span
+                            class="inline-block bg-white/10 backdrop-blur-md text-white/80 font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-[0.2em] border border-white/10">
+                            Langkah Mudah ✨
+                        </span>
+                        <h3 class="text-3xl md:text-4xl font-black tracking-tighter mb-4">Cara Mudah Pesan ENAMELIST
+                        </h3>
                         <p class="text-gray-400">Ikuti 3 langkah praktis ini untuk mendapatkan aksesori impianmu!</p>
                     </div>
 
@@ -207,14 +405,18 @@
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-16 mb-20 items-center">
                 <div class="space-y-8">
-                    <h3 class="text-4xl font-black text-gray-800 dark:text-white">Ada Pertanyaan atau Ingin Pesan
-                        Massal?</h3>
-                    <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+                    <span
+                        class="inline-block bg-pastel-pink/10 dark:bg-white/10 backdrop-blur-md text-pastel-pink dark:text-white font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-[0.2em] shadow-sm border border-pastel-pink/10 dark:border-white/5">
+                        Hubungi Kami 📱
+                    </span>
+                    <h3 class="text-4xl font-black text-gray-900 dark:text-white tracking-tighter leading-tight">Ada
+                        Pertanyaan atau Ingin Pesan Massal?</h3>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-md">
                         Kami menerima pesanan skala besar untuk organisasi, himpunan, atau event spesialmu dengan harga
                         khusus yang jauh lebih hemat!
                     </p>
                     <a href="https://wa.me/+6282118004921" target="_blank" rel="noopener noreferrer"
-                        class="inline-flex items-center gap-4 bg-whatsapp text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:opacity-90 transition-all transform hover:-translate-y-1">
+                        class="btn-shimmer inline-flex items-center gap-4 bg-whatsapp text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:opacity-90 transition-all">
                         <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -246,13 +448,16 @@
             <hr class="border-gray-200 dark:border-gray-800 mb-12">
 
             <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-                <div class="text-2xl font-black text-pastel-pink">ENAMELIST</div>
+                <div class="flex items-center gap-3">
+                    <img src="assets/logo.png" alt="ENAMELIST Logo" class="h-8 w-auto object-contain">
+                    <span class="text-2xl font-black text-pastel-pink">ENAMELIST</span>
+                </div>
                 <div class="flex space-x-8 text-gray-500 font-bold uppercase tracking-widest text-xs">
                     <a href="#" class="hover:text-pastel-pink transition-colors">TikTok</a>
                     <a href="#" class="hover:text-pastel-pink transition-colors">Instagram</a>
                     <a href="#" class="hover:text-pastel-pink transition-colors">Twitter</a>
                 </div>
-                <div class="text-gray-400 text-sm">
+                <div class="text-gray-500 dark:text-gray-400 text-sm">
                     Copyright &copy; 2026 ENAMELIST. All rights reserved.
                 </div>
             </div>
@@ -377,6 +582,36 @@
         </div>
     </div>
 
+    <!-- Template for Product Card -->
+    <template id="product-card-template">
+        <div class="product-card cursor-pointer bg-white dark:bg-dark-card rounded-3xl overflow-hidden shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-pastel-pink focus-visible:outline-none transition-all duration-300 border border-pastel-blue/20 dark:border-white/10 group flex flex-col h-full"
+            role="button" tabindex="0">
+            <div class="relative overflow-hidden aspect-square">
+                <img src="" alt="" loading="lazy"
+                    class="product-img w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <span
+                    class="product-type absolute top-4 left-4 bg-white/90 dark:bg-dark-bg/90 backdrop-blur-sm text-pastel-pink font-bold px-3 py-1 rounded-full text-xs uppercase tracking-wider shadow-sm">
+                </span>
+            </div>
+            <div class="product-info p-5 flex flex-col flex-grow justify-center">
+                <h3 class="product-name font-bold text-gray-800 dark:text-white mb-2 line-clamp-1"></h3>
+                <p class="product-desc text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2 flex-grow"></p>
+                <div class="mt-auto pt-2">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <span class="product-price font-black text-pastel-pink"></span>
+                        <a href="https://forms.google.com/your-form-link" target="_blank" rel="noopener noreferrer"
+                            class="order-btn sm:px-6 py-2.5 text-center bg-pastel-blue hover:bg-pastel-blue-dark text-white font-bold rounded-xl transition-colors duration-300 shadow-md">
+                            Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="js/three-generator.js"></script>
     <script src="js/script.js"></script>
 </body>
 

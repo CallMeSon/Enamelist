@@ -2,10 +2,10 @@
 
 :root {
     /* Brand & Theme Colors (Semantic Variables) */
-    --pastel-pink: #FF4D6D;
-    --pastel-pink-dark: #E01E37;
-    --pastel-blue: #4CC9F0;
-    --pastel-blue-dark: #4361EE;
+    --pastel-pink: #FF1F4B;
+    --pastel-pink-dark: #D90429;
+    --pastel-blue: #0079A1;
+    --pastel-blue-dark: #005F73;
     --pastel-yellow: #FFD60A;
     --pastel-green: #38B000;
     --pastel-purple: #7209B7;
@@ -15,19 +15,19 @@
     /* Semantic Layout Token Layers */
     --color-bg: var(--off-white);
     --color-text: #1A1A1A;
-    --color-bg-glass: rgba(255, 255, 255, 0.7);
-    --color-border-glass: rgba(255, 255, 255, 0.3);
+    --color-bg-glass: rgba(255, 255, 255, 0.9);
+    --color-border-glass: rgba(0, 0, 0, 0.05);
     --color-scrollbar-track: var(--off-white);
-    --card-shadow-color: rgba(0, 0, 0, 0.1);
+    --card-shadow-color: rgba(0, 0, 0, 0.08);
 }
 
 .dark {
     --color-bg: var(--dark-bg);
     --color-text: #F8F9FA;
-    --color-bg-glass: rgba(15, 23, 42, 0.7);
-    --color-border-glass: rgba(255, 255, 255, 0.1);
+    --color-bg-glass: rgba(15, 23, 42, 0.9);
+    --color-border-glass: rgba(255, 255, 255, 0.05);
     --color-scrollbar-track: var(--dark-bg);
-    --card-shadow-color: rgba(0, 0, 0, 0.5);
+    --card-shadow-color: rgba(0, 0, 0, 0.4);
 }
 
 body {
@@ -39,14 +39,14 @@ body {
 }
 
 .hero-gradient {
-    background: linear-gradient(135deg, var(--pastel-pink) 0%, var(--pastel-blue-dark) 100%);
+    background: linear-gradient(135deg, var(--pastel-pink) 0%, var(--pastel-blue) 100%);
 }
 
 .glass-morphism {
     background: var(--color-bg-glass);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid var(--color-border-glass);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-bottom: 1px solid var(--color-border-glass);
     transition: background 0.3s ease, border-color 0.3s ease;
 }
 
@@ -64,12 +64,12 @@ body {
 }
 
 .floating-wa:hover {
-    transform: scale(1.15) rotate(8deg);
-    box-shadow: 0 12px 30px rgba(21, 128, 61, 0.4);
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 24px rgba(21, 128, 61, 0.3);
 }
 
 .card-shadow {
-    box-shadow: 0 10px 30px -10px var(--card-shadow-color);
+    box-shadow: 0 4px 20px -4px var(--card-shadow-color);
 }
 
 /* Custom Scrollbar */
@@ -116,11 +116,25 @@ header .bg-pastel-pink {
 
 /* --- Float: Smooth up/down with subtle rotation --- */
 @keyframes float {
-    0%   { transform: translateY(0px) rotate(0deg); }
-    25%  { transform: translateY(-18px) rotate(1.5deg); }
-    50%  { transform: translateY(-30px) rotate(0deg); }
-    75%  { transform: translateY(-14px) rotate(-1.5deg); }
-    100% { transform: translateY(0px) rotate(0deg); }
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-18px) rotate(1.5deg);
+    }
+
+    50% {
+        transform: translateY(-30px) rotate(0deg);
+    }
+
+    75% {
+        transform: translateY(-14px) rotate(-1.5deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
 }
 
 .animate-float {
@@ -130,29 +144,48 @@ header .bg-pastel-pink {
 
 /* --- Orb: Background blob gentle pulsing orbit --- */
 @keyframes orb-pulse {
-    0%, 100% { transform: scale(1) translateX(0px); opacity: 0.3; }
-    50%       { transform: scale(1.15) translateX(20px); opacity: 0.5; }
+
+    0%,
+    100% {
+        transform: scale(1) translateX(0px);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.15) translateX(20px);
+        opacity: 0.5;
+    }
 }
 
 @keyframes orb-pulse-alt {
-    0%, 100% { transform: scale(1) translateY(0px); opacity: 0.3; }
-    50%       { transform: scale(1.1) translateY(-20px); opacity: 0.45; }
+
+    0%,
+    100% {
+        transform: scale(1) translateY(0px);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.1) translateY(-20px);
+        opacity: 0.45;
+    }
 }
 
 .animate-orb {
-    animation: orb-pulse 8s ease-in-out infinite;
+    animation: orb-pulse 12s ease-in-out infinite;
 }
 
 .animate-orb-alt {
-    animation: orb-pulse-alt 10s ease-in-out infinite;
+    animation: orb-pulse-alt 15s ease-in-out infinite;
 }
 
 /* --- Fade-in-up: Staggered hero text entrance --- */
 @keyframes fade-in-up {
     from {
         opacity: 0;
-        transform: translateY(32px);
+        transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -161,65 +194,81 @@ header .bg-pastel-pink {
 
 .animate-fade-in-up {
     opacity: 0;
-    animation: fade-in-up 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: fade-in-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.animate-fade-in-up.delay-1 { animation-delay: 0.1s; }
-.animate-fade-in-up.delay-2 { animation-delay: 0.2s; }
-.animate-fade-in-up.delay-3 { animation-delay: 0.35s; }
-.animate-fade-in-up.delay-4 { animation-delay: 0.5s; }
+.animate-fade-in-up.delay-1 {
+    animation-delay: 0.1s;
+}
+
+.animate-fade-in-up.delay-2 {
+    animation-delay: 0.2s;
+}
+
+.animate-fade-in-up.delay-3 {
+    animation-delay: 0.35s;
+}
+
+.animate-fade-in-up.delay-4 {
+    animation-delay: 0.5s;
+}
 
 /* --- Shimmer: Hover gloss sweep on buttons --- */
 @keyframes shimmer {
-    0%   { transform: translateX(-150%) skewX(-15deg); }
-    100% { transform: translateX(250%) skewX(-15deg); }
+    0% {
+        transform: translateX(-150%) skewX(-15deg);
+    }
+
+    100% {
+        transform: translateX(250%) skewX(-15deg);
+    }
 }
 
 .btn-shimmer {
     position: relative;
     overflow: hidden;
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-                box-shadow 0.3s ease,
-                background-color 0.3s ease;
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
 }
 
 .btn-shimmer::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
     transform: translateX(-150%) skewX(-15deg);
     transition: none;
     pointer-events: none;
 }
 
 .btn-shimmer:hover::after {
-    animation: shimmer 0.65s ease forwards;
+    animation: shimmer 0.8s ease forwards;
 }
 
 .btn-shimmer:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 10px 28px -6px rgba(0,0,0,0.22);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.15);
 }
 
 .btn-shimmer:active {
-    transform: translateY(0px) scale(0.97);
+    transform: translateY(0px) scale(0.98);
     transition-duration: 0.1s;
 }
 
 /* --- Product Card Hover: Lift + glow border --- */
 .product-card {
-    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-                box-shadow 0.35s ease,
-                border-color 0.35s ease;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
     will-change: transform;
 }
 
 .product-card:hover {
-    transform: translateY(-10px) scale(1.025);
-    box-shadow: 0 20px 50px -12px rgba(76, 201, 240, 0.35),
-                0 6px 20px -4px rgba(0,0,0,0.12);
-    border-color: rgba(76, 201, 240, 0.5) !important;
+    transform: translateY(-6px);
+    box-shadow: 0 24px 48px -12px var(--card-shadow-color),
+        0 4px 12px -4px rgba(0, 0, 0, 0.05);
+    border-color: var(--pastel-blue) !important;
 }
 
 /* --- Card image zoom on hover --- */
@@ -234,9 +283,9 @@ header .bg-pastel-pink {
 /* --- Filter button active pop --- */
 .filter-btn {
     transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
-                background-color 0.25s ease,
-                box-shadow 0.25s ease,
-                color 0.25s ease;
+        background-color 0.25s ease,
+        box-shadow 0.25s ease,
+        color 0.25s ease;
 }
 
 .filter-btn:hover {
@@ -273,13 +322,13 @@ header nav a:hover::after {
 /* --- Value card hover lift --- */
 .value-card {
     transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-                background-color 0.3s ease,
-                box-shadow 0.35s ease;
+        background-color 0.3s ease,
+        box-shadow 0.35s ease;
 }
 
 .value-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px -12px rgba(0,0,0,0.12);
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12);
 }
 
 /* --- Scroll-reveal: elements slide in when visible --- */
@@ -288,6 +337,7 @@ header nav a:hover::after {
         opacity: 0;
         transform: translateY(40px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -334,4 +384,124 @@ header nav a:hover::after {
     .btn-shimmer::after {
         display: none;
     }
+}
+
+/* =============================================
+   3D KEYCHAIN CUSTOMIZER STYLES
+   ============================================= */
+
+#drop-zone.dragover {
+    border-color: var(--pastel-pink);
+    background-color: rgba(255, 77, 109, 0.05);
+    transform: scale(1.02);
+}
+
+.shape-btn {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.shape-btn.active {
+    background-color: rgba(76, 201, 240, 0.15) !important;
+    border-color: var(--pastel-blue) !important;
+    color: var(--pastel-blue-dark) !important;
+    box-shadow: 0 4px 12px rgba(76, 201, 240, 0.15);
+}
+
+.dark .shape-btn.active {
+    color: var(--pastel-blue) !important;
+}
+
+.metal-btn {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.metal-btn.active {
+    border-color: var(--pastel-pink) !important;
+    background-color: rgba(255, 77, 109, 0.05) !important;
+    box-shadow: 0 4px 12px rgba(255, 77, 109, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Custom Slider Styling */
+#thickness-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 9999px;
+    background: #e2e8f0;
+    outline: none;
+}
+
+.dark #thickness-slider {
+    background: #334155;
+}
+
+#thickness-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--pastel-pink);
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    border: 2px solid white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+#thickness-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* Placeholder always centered inside the 3D canvas container,
+   regardless of the Three.js <canvas> sibling that gets injected */
+#canvas-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 24rem;
+    /* matches max-w-sm */
+    pointer-events: auto;
+    z-index: 1;
+}
+
+/* 3D Canvas container styling */
+#canvas-3d-container canvas:not(.hidden) {
+    outline: none;
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* =============================================
+   3D CUSTOMIZER LAYOUT POLISH
+   ============================================= */
+
+/* Ensure the 3D canvas container fills its parent properly */
+#canvas-3d-container {
+    min-height: 400px;
+}
+
+/* Customizer section wrapper: keep control panel and viewer aligned */
+.customizer-grid {
+    align-items: stretch;
+}
+
+/* On mobile, give the 3D viewer a sensible height */
+@media (max-width: 1023px) {
+    #canvas-3d-container {
+        min-height: 360px;
+    }
+}
+
+/* Ensure metal buttons show a proper swatch layout */
+.metal-btn {
+    flex-shrink: 0;
+}
+
+/* Control panel card inner spacing consistency */
+#drop-zone {
+    min-height: 100px;
 }

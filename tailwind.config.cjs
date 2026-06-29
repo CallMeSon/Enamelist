@@ -5,10 +5,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "pastel-pink": "#FF4D6D",
-        "pastel-pink-dark": "#E01E37",
-        "pastel-blue": "#4CC9F0",
-        "pastel-blue-dark": "#4361EE",
+        "pastel-pink": "#FF1F4B",
+        "pastel-pink-dark": "#D90429",
+        "pastel-blue": "#0079A1",
+        "pastel-blue-dark": "#005F73",
         "pastel-yellow": "#FFD60A",
         "pastel-green": "#38B000",
         "pastel-purple": "#7209B7",

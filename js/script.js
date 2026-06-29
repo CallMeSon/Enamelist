@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setThemeA11y(false);
     }
 
-    themeToggleBtn.addEventListener('click', function() {
+    themeToggleBtn.addEventListener('click', function () {
         // toggle icons inside button
         themeToggleDarkIcon.classList.toggle('hidden');
         themeToggleLightIcon.classList.toggle('hidden');
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 setThemeA11y(false);
             }
 
-        // if NOT set via local storage previously
+            // if NOT set via local storage previously
         } else {
             if (document.documentElement.classList.contains('dark')) {
                 document.documentElement.classList.remove('dark');
@@ -49,6 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem('color-theme', 'dark');
                 setThemeA11y(true);
             }
+        }
+
+        // Sync 3D scene lighting/background theme
+        if (typeof setThemeMode === 'function') {
+            setThemeMode(document.documentElement.classList.contains('dark'));
         }
     });
 
@@ -72,45 +77,75 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    const productCardTemplate = document.getElementById('product-card-template');
+
     // Function to render product cards
     function renderProducts(products) {
+        if (!productContainer || !productCardTemplate) return;
+
+        // Clear existing content efficiently
+        while (productContainer.firstChild) {
+            productContainer.removeChild(productContainer.firstChild);
+        }
+
         if (products.length === 0) {
-            productContainer.innerHTML = '<p class="text-center text-gray-500 col-span-full py-10">Tidak ada produk dalam kategori ini.</p>';
+            const emptyMsg = document.createElement('p');
+            emptyMsg.className = 'text-center text-gray-500 col-span-full py-10';
+            emptyMsg.textContent = 'Tidak ada produk dalam kategori ini.';
+            productContainer.appendChild(emptyMsg);
             return;
         }
 
-        const productsHTML = products.map(product => {
-            return `
-                <div class="product-card cursor-pointer bg-white dark:bg-dark-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-pastel-blue/20 dark:border-white/10 group flex flex-col h-full" data-id="${product.id}">
-                    <div class="relative overflow-hidden aspect-square">
-                        <img src="${product.image_url}" alt="${product.name}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <span class="absolute top-3 left-3 bg-white/90 dark:bg-dark-bg/90 backdrop-blur-sm text-pastel-pink font-bold px-3 py-1 rounded-full text-xs uppercase tracking-wider shadow-sm">
-                            ${product.type}
-                        </span>
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">${product.name}</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2 flex-grow">${product.description}</p>
-                        <div class="mt-auto pt-2">
-                            <div class="flex flex-col gap-3">
-                                <span class="text-xl font-black text-pastel-pink">${product.price}</span>
-                                <a href="https://forms.google.com/your-form-link" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-pastel-blue hover:bg-pastel-blue-dark text-white font-bold py-2 rounded-xl transition-colors duration-300 shadow-md">
-                                    Pesan Sekarang
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }).join('');
+        const fragment = document.createDocumentFragment();
 
-        productContainer.innerHTML = productsHTML;
+        products.forEach((product, index) => {
+            // Clone the template
+            const clone = productCardTemplate.content.cloneNode(true);
+            const card = clone.querySelector('.product-card');
+
+            // Apply title typography consistency
+            const nameEl = card.querySelector('.product-name');
+            nameEl.classList.add('tracking-tighter');
+
+            // Bind data
+            card.setAttribute('data-id', product.id);
+            card.setAttribute('aria-label', `Lihat detail ${product.name}`);
+
+            const img = card.querySelector('.product-img');
+            img.src = product.image_url;
+            img.alt = product.name;
+
+            const typeBadge = card.querySelector('.product-type');
+            typeBadge.textContent = product.type;
+
+            const name = card.querySelector('.product-name');
+            name.textContent = product.name;
+
+            const desc = card.querySelector('.product-desc');
+            desc.textContent = product.description;
+
+            const price = card.querySelector('.product-price');
+            price.textContent = product.price;
+
+            fragment.appendChild(clone);
+        });
+
+        productContainer.appendChild(fragment);
+    }
+
+    // Function to handle product card selection (Click or Keyboard)
+    function handleProductSelection(card) {
+        const productId = parseInt(card.getAttribute('data-id'), 10);
+        const product = allProducts.find(p => p.id === productId);
+        if (product) {
+            openProductDetailModal(product);
+        }
     }
 
     // Function to setup filter button logic
     function setupFilters() {
         const filterButtons = document.querySelectorAll('.filter-btn');
-        
+
         filterButtons.forEach(btn => {
             btn.addEventListener('click', () => {
                 // Update active state
@@ -122,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.classList.remove('bg-white', 'dark:bg-dark-card', 'text-gray-600', 'dark:text-gray-400');
 
                 const category = btn.getAttribute('data-category');
-                
+
                 if (category === 'all') {
                     renderProducts(allProducts);
                 } else {
@@ -159,6 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             productDetailModalContent.classList.remove('scale-95', 'opacity-0');
             productDetailModalContent.classList.add('scale-100', 'opacity-100');
+            // Focus trap - focus the close button
+            document.getElementById('close-product-modal-btn')?.focus();
         }, 10);
     }
 
@@ -184,11 +221,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const card = e.target.closest('.product-card');
             if (card) {
-                const productId = parseInt(card.getAttribute('data-id'), 10);
-                const product = allProducts.find(p => p.id === productId);
-                if (product) {
-                    openProductDetailModal(product);
-                }
+                handleProductSelection(card);
+            }
+        });
+
+        // Keyboard support for product cards
+        productContainer.addEventListener('keydown', (e) => {
+            const card = e.target.closest('.product-card');
+            if (card && (e.key === 'Enter' || e.key === ' ')) {
+                e.preventDefault();
+                handleProductSelection(card);
             }
         });
     }
@@ -267,4 +309,191 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial observer pass for static elements
     initRevealObserver();
+
+    // 3D Customizer Logic Integration
+    // Initialize 3D Viewer if container exists
+    if (document.getElementById('canvas-3d-container')) {
+        init3DViewer('canvas-3d-container');
+
+        // Debug helper: auto-load sample image if ?test=true is in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('test') === 'true') {
+            fetch('assets/images/Product1.png')
+                .then(res => res.blob())
+                .then(blob => {
+                    const file = new File([blob], "Product1.png", { type: "image/png" });
+                    handleFileUpload(file);
+                })
+                .catch(err => console.error('Error loading test image:', err));
+        }
+    }
+
+    // Drag and Drop / File Upload Handlers
+    const dropZone = document.getElementById('drop-zone');
+    const imageUpload = document.getElementById('image-upload');
+    const fileStatus = document.getElementById('file-status');
+    const fileName = document.getElementById('file-name');
+    const removeFileBtn = document.getElementById('remove-file-btn');
+    const canvasPlaceholder = document.getElementById('canvas-placeholder');
+    let uploadedImageBase64 = null;
+
+    function handleFileUpload(file) {
+        if (!file || !file.type.startsWith('image/')) {
+            alert('Silakan unggah file gambar yang valid!');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            uploadedImageBase64 = e.target.result;
+
+            // Show status
+            if (fileName) fileName.textContent = file.name;
+            if (dropZone) dropZone.classList.add('hidden');
+            if (fileStatus) fileStatus.classList.remove('hidden');
+
+            // Trigger 3D render update
+            trigger3DRenderUpdate();
+        };
+        reader.readAsDataURL(file);
+    }
+
+    if (dropZone && imageUpload) {
+        // Click drop zone opens file dialog
+        dropZone.addEventListener('click', () => imageUpload.click());
+
+        // Keyboard support for drop zone
+        dropZone.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                imageUpload.click();
+            }
+        });
+
+        imageUpload.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            handleFileUpload(file);
+        });
+
+        // Drag events
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                dropZone.classList.add('dragover');
+            }, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('dragover');
+            }, false);
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            const dt = e.dataTransfer;
+            const file = dt.files[0];
+            handleFileUpload(file);
+        });
+    }
+
+    // Remove file handler
+    if (removeFileBtn) {
+        removeFileBtn.addEventListener('click', () => {
+            uploadedImageBase64 = null;
+            if (imageUpload) imageUpload.value = '';
+            if (fileStatus) fileStatus.classList.add('hidden');
+            if (dropZone) dropZone.classList.remove('hidden');
+
+            // Show canvas placeholder and hide loader/canvas
+            if (canvasPlaceholder) {
+                canvasPlaceholder.classList.remove('opacity-0', 'pointer-events-none', 'hidden');
+            }
+            if (typeof renderer !== 'undefined' && renderer && renderer.domElement) {
+                renderer.domElement.classList.add('hidden');
+            }
+
+            // Clear Three.js model
+            if (typeof keychainGroup !== 'undefined' && keychainGroup) {
+                while (keychainGroup.children.length > 0) {
+                    const obj = keychainGroup.children[0];
+                    if (obj.geometry) obj.geometry.dispose();
+                    if (Array.isArray(obj.material)) {
+                        obj.material.forEach(m => m.dispose());
+                    } else if (obj.material) {
+                        obj.material.dispose();
+                    }
+                    keychainGroup.remove(obj);
+                }
+            }
+        });
+    }
+
+    // Control selectors (Shape, Metal, Thickness)
+    const shapeButtons = document.querySelectorAll('.shape-btn');
+    const metalButtons = document.querySelectorAll('.metal-btn');
+    const thicknessSlider = document.getElementById('thickness-slider');
+    const thicknessVal = document.getElementById('thickness-val');
+    const reset3dBtn = document.getElementById('reset-3d-btn');
+
+    let selectedShape = 'custom';
+    let selectedMetal = 'gold';
+    let selectedThickness = 4.0;
+
+    function trigger3DRenderUpdate() {
+        if (!uploadedImageBase64) return;
+        if (typeof update3DModel === 'function') {
+            update3DModel(uploadedImageBase64, selectedShape, selectedThickness, selectedMetal);
+        }
+    }
+
+    shapeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            shapeButtons.forEach(b => {
+                b.classList.remove('active', 'border-pastel-blue/20', 'bg-pastel-blue/10', 'text-pastel-blue');
+                b.classList.add('border-gray-200', 'dark:border-white/10', 'bg-white', 'dark:bg-dark-bg', 'text-gray-600', 'dark:text-gray-400');
+            });
+            btn.classList.add('active', 'border-pastel-blue/20', 'bg-pastel-blue/10', 'text-pastel-blue');
+            btn.classList.remove('border-gray-200', 'dark:border-white/10', 'bg-white', 'dark:bg-dark-bg', 'text-gray-600', 'dark:text-gray-400');
+
+            selectedShape = btn.getAttribute('data-shape');
+            if (uploadedImageBase64 && typeof updateShape === 'function') {
+                updateShape(selectedShape);
+            }
+        });
+    });
+
+    metalButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            metalButtons.forEach(b => {
+                b.classList.remove('active', 'border-pastel-pink');
+                b.classList.add('border-gray-200', 'dark:border-white/10', 'hover:bg-gray-50', 'dark:hover:bg-gray-800');
+            });
+            btn.classList.add('active', 'border-pastel-pink');
+            btn.classList.remove('border-gray-200', 'dark:border-white/10', 'hover:bg-gray-50', 'dark:hover:bg-gray-800');
+
+            selectedMetal = btn.getAttribute('data-metal');
+            if (uploadedImageBase64 && typeof updateMetalColor === 'function') {
+                updateMetalColor(selectedMetal);
+            }
+        });
+    });
+
+    if (thicknessSlider && thicknessVal) {
+        thicknessSlider.addEventListener('input', (e) => {
+            selectedThickness = parseFloat(e.target.value);
+            thicknessVal.textContent = selectedThickness.toFixed(1) + ' mm';
+            if (uploadedImageBase64 && typeof updateThickness === 'function') {
+                updateThickness(selectedThickness);
+            }
+        });
+    }
+
+    if (reset3dBtn) {
+        reset3dBtn.addEventListener('click', () => {
+            if (typeof reset3DView === 'function') {
+                reset3DView();
+            }
+        });
+    }
 });
