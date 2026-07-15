@@ -86,19 +86,3 @@ Untuk melakukan kompilasi manual seluruh file CSS sebelum didistribusikan:
 ```bash
 npm run build
 ```
-
-## Panduan Deployment ke Vercel
-
-Proyek ini telah dikonfigurasi untuk deployment instan di platform Vercel dengan deteksi otomatis:
-
-1. **Hubungkan Repositori ke Vercel**:
-   Hubungkan repositori Git proyek ini ke akun Vercel Anda.
-
-2. **Konfigurasi Project Settings**:
-   Vercel akan mendeteksi file `package.json` dan secara otomatis mengonfigurasi pengaturan build berikut:
-   * **Framework Preset**: Other / None
-   * **Build Command**: `npm run build`
-   * **Output Directory**: `.` (direktori utama)
-
-3. **Deploy**:
-   Tekan tombol Deploy. Proses build akan secara otomatis mengompilasi CSS menggunakan skrip NPM dan mempublikasikan landing page Anda dalam beberapa detik.
