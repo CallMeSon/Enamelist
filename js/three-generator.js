@@ -18,7 +18,7 @@ let keychainGroup = null;
 let currentTexture = null;
 let currentImageSrc = null;
 let currentShape = 'custom';
-let currentThickness = 4.0;
+const FIXED_THICKNESS = 2.0; // Fixed thickness — slider removed (MVP simplification)
 let currentMetal = 'gold';
 
 // Metal colors configuration
@@ -514,8 +514,6 @@ function createThreeShape(shapeType, imageWidth, imageHeight, contourPoints) {
         const centerX = minX + pW / 2;
         const centerY = minY + pH / 2;
 
-        // Scale to match 3D world units, with a small inset margin (0.95)
-        // so the metallic border has room to extend slightly beyond the texture
         const scale = (maxDim * 0.92) / Math.max(pW, pH);
 
         const startPt = contourPoints[0];
@@ -526,6 +524,9 @@ function createThreeShape(shapeType, imageWidth, imageHeight, contourPoints) {
             shape.lineTo((p.x - centerX) * scale, -(p.y - centerY) * scale);
         }
         shape.closePath();
+
+        // Pass mapping metadata so UVs can be perfectly aligned to original canvas
+        shape.userData = { cW: imageWidth, cH: imageHeight, centerX, centerY, scale_3d: scale };
     } else if (shapeType === 'circle') {
         const radius = Math.min(w, h) / 2;
         shape.absarc(0, 0, radius, 0, Math.PI * 2, false);
@@ -587,30 +588,29 @@ function update3DModel(imageSrc, shapeType, thickness, metalName) {
         const img = new Image();
         img.src = imageSrc;
         img.onload = () => {
+            let drawW = img.width;
+            let drawH = img.height;
+            const maxCanvasDim = 100;
+
+            if (drawW > maxCanvasDim || drawH > maxCanvasDim) {
+                if (drawW > drawH) {
+                    drawH = Math.round(maxCanvasDim * (drawH / drawW));
+                    drawW = maxCanvasDim;
+                } else {
+                    drawW = Math.round(maxCanvasDim * (drawW / drawH));
+                    drawH = maxCanvasDim;
+                }
+            }
+
             let contourPoints = null;
 
             if (shapeType === 'custom') {
-                // FIX 3: Reduced canvas resolution from 150 to 100
-                // Lower resolution = fewer jagged pixel-level details in the silhouette
-                const maxCanvasDim = 100;
-                let cW = img.width;
-                let cH = img.height;
-                if (cW > maxCanvasDim || cH > maxCanvasDim) {
-                    if (cW > cH) {
-                        cH = Math.round(maxCanvasDim * (cH / cW));
-                        cW = maxCanvasDim;
-                    } else {
-                        cW = Math.round(maxCanvasDim * (cW / cH));
-                        cH = maxCanvasDim;
-                    }
-                }
-
                 const canvas = document.createElement('canvas');
-                canvas.width = cW;
-                canvas.height = cH;
+                canvas.width = drawW;
+                canvas.height = drawH;
                 const ctx = canvas.getContext('2d');
-                ctx.drawImage(img, 0, 0, cW, cH);
-                const imageData = ctx.getImageData(0, 0, cW, cH);
+                ctx.drawImage(img, 0, 0, drawW, drawH);
+                const imageData = ctx.getImageData(0, 0, drawW, drawH);
 
                 // Trace raw contour using Marching Squares (Fix 1)
                 const rawPoints = traceOutline(imageData);
@@ -631,7 +631,7 @@ function update3DModel(imageSrc, shapeType, thickness, metalName) {
                 }
             }
 
-            rebuildKeychainMesh(shapeType, img.width, img.height, contourPoints, texture);
+            rebuildKeychainMesh(shapeType, drawW, drawH, contourPoints, texture);
 
             if (loader) loader.classList.add('hidden');
 
@@ -677,18 +677,17 @@ function rebuildKeychainMesh(shapeType, imgWidth, imgHeight, contourPoints, text
     // 1. Create the Shape
     const shape = createThreeShape(shapeType, imgWidth, imgHeight, contourPoints);
 
-    // 2. Extrude configuration
-    const extrudeDepth = currentThickness * 0.15;
+    // 2. Extrude configuration (fixed thickness — slider removed)
+    const extrudeDepth = FIXED_THICKNESS * 0.15;
 
-    // FIX 7 + FIX 8: Improved bevel settings and added curveSegments
     const extrudeSettings = {
         depth: extrudeDepth,
         bevelEnabled: true,
-        bevelSegments: 6,       // was 4 — smoother bevel edge
+        bevelSegments: 6,
         steps: 1,
-        bevelSize: 0.12,        // was 0.08 — slightly more pronounced bevel
-        bevelThickness: 0.1,    // was 0.08
-        curveSegments: 32       // NEW — smooth curve tessellation
+        bevelSize: 0.12,
+        bevelThickness: 0.1,
+        curveSegments: 32
     };
 
     // Create Extrude Geometry
@@ -697,26 +696,30 @@ function rebuildKeychainMesh(shapeType, imgWidth, imgHeight, contourPoints, text
     // Center the geometry origin
     geometry.center();
 
-    // 3. FIX 6: Correct UV Mapping for texture alignment on the front cap
-    geometry.computeBoundingBox();
-    const bbox = geometry.boundingBox;
-    const sizeX = bbox.max.x - bbox.min.x;
-    const sizeY = bbox.max.y - bbox.min.y;
-
-    // Manually remap UVs so texture fills the cap exactly
-    // ExtrudeGeometry groups: group 0 = front cap, group 1 = back cap (in some Three builds)
-    // We use offset + repeat to tile the texture across the bounding box
+    // 3. Perfect UV Mapping
+    // By using the original canvas size (cW, cH) and the exact offset/scale, 
+    // the image maintains its aspect ratio perfectly without stretching.
     texture.wrapS = THREE.ClampToEdgeWrapping;
     texture.wrapT = THREE.ClampToEdgeWrapping;
 
-    // FIX 6: Corrected UV offset formula
-    // texture.repeat controls how many times the texture repeats across sizeX/sizeY
-    // We want exactly 1 repeat across the whole shape, centered
-    const uvScaleX = 1.0 / sizeX;
-    const uvScaleY = 1.0 / sizeY;
-    texture.repeat.set(uvScaleX, uvScaleY);
-    texture.offset.set(0.5 - (bbox.min.x + sizeX / 2) * uvScaleX,
-                       0.5 - (bbox.min.y + sizeY / 2) * uvScaleY);
+    // Compute bounding box for all shapes (needed for UVs and the ring placement)
+    geometry.computeBoundingBox();
+    const bbox = geometry.boundingBox;
+
+    if (shape.userData && shape.userData.scale_3d) {
+        const { cW, cH, centerX, centerY, scale_3d } = shape.userData;
+        const uvScaleX = 1.0 / (cW * scale_3d);
+        const uvScaleY = 1.0 / (cH * scale_3d);
+        
+        texture.repeat.set(uvScaleX, uvScaleY);
+        texture.offset.set(centerX / cW, 1.0 - (centerY / cH));
+    } else {
+        const sizeX = bbox.max.x - bbox.min.x;
+        const sizeY = bbox.max.y - bbox.min.y;
+        
+        texture.repeat.set(1.0 / sizeX, 1.0 / sizeY);
+        texture.offset.set(0.5, 0.5);
+    }
 
     // 4. Materials
     const metalConfig = metalColors[currentMetal] || metalColors.gold;
@@ -793,13 +796,11 @@ function updateMetalColor(metalName) {
 }
 
 /**
- * Update thickness dynamically
+ * Update thickness dynamically — REMOVED (MVP simplification, fixed thickness used)
+ * Kept as no-op stub to avoid errors if called from old code.
  */
-function updateThickness(thickness) {
-    currentThickness = parseFloat(thickness);
-    if (currentImageSrc) {
-        update3DModel(currentImageSrc, currentShape, currentThickness, currentMetal);
-    }
+function updateThickness() {
+    // no-op
 }
 
 /**
@@ -808,6 +809,6 @@ function updateThickness(thickness) {
 function updateShape(shapeType) {
     currentShape = shapeType;
     if (currentImageSrc) {
-        update3DModel(currentImageSrc, currentShape, currentThickness, currentMetal);
+        update3DModel(currentImageSrc, currentShape, FIXED_THICKNESS, currentMetal);
     }
 }

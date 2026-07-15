@@ -429,21 +429,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Control selectors (Shape, Metal, Thickness)
+    // Control selectors (Shape, Metal)
     const shapeButtons = document.querySelectorAll('.shape-btn');
     const metalButtons = document.querySelectorAll('.metal-btn');
-    const thicknessSlider = document.getElementById('thickness-slider');
-    const thicknessVal = document.getElementById('thickness-val');
     const reset3dBtn = document.getElementById('reset-3d-btn');
 
     let selectedShape = 'custom';
     let selectedMetal = 'gold';
-    let selectedThickness = 4.0;
 
     function trigger3DRenderUpdate() {
         if (!uploadedImageBase64) return;
         if (typeof update3DModel === 'function') {
-            update3DModel(uploadedImageBase64, selectedShape, selectedThickness, selectedMetal);
+            update3DModel(uploadedImageBase64, selectedShape, null, selectedMetal);
         }
     }
 
@@ -479,15 +476,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    if (thicknessSlider && thicknessVal) {
-        thicknessSlider.addEventListener('input', (e) => {
-            selectedThickness = parseFloat(e.target.value);
-            thicknessVal.textContent = selectedThickness.toFixed(1) + ' mm';
-            if (uploadedImageBase64 && typeof updateThickness === 'function') {
-                updateThickness(selectedThickness);
-            }
-        });
-    }
 
     if (reset3dBtn) {
         reset3dBtn.addEventListener('click', () => {

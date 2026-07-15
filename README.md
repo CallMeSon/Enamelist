@@ -1,75 +1,104 @@
-# 🎨 ENAMELIST - Platform Keychain & Enamel Pin Custom
+# ENAMELIST - Platform Kustomisasi Keychain dan Enamel Pin 3D
 
-Aplikasi web landing page interaktif untuk **ENAMELIST** yang menampilkan katalog produk keychain dan enamel pin dengan desain premium, modern, dan responsif. Proyek ini dibangun menggunakan HTML, Javascript, Tailwind CSS (dikompilasi), dan Custom CSS.
+ENAMELIST adalah platform web interaktif yang dirancang untuk memfasilitasi kustomisasi dan pemesanan gantungan kunci (keychain) serta enamel pin secara real-time. Proyek ini dibangun untuk menjembatani kebutuhan visualisasi produk kustom bagi konsumen individu (B2C) maupun pesanan massal untuk organisasi dan komunitas (B2B).
 
-## 🚀 Panduan Deploy ke Vercel
+## Alur Bisnis (Business Flow)
 
-Proyek ini telah dikonfigurasi agar dapat dideploy ke **Vercel** dengan sangat mudah melalui integrasi otomatis (Zero Config).
+Platform ENAMELIST mengintegrasikan alur bisnis digital yang efisien dari tahap eksplorasi hingga konversi transaksi:
 
-### Langkah-langkah Deploy:
+1. **Eksplorasi Produk dan Katalog**:
+   Pengguna dapat menjelajahi katalog produk siap pakai yang dikategorikan berdasarkan tipe produk (keychain dan enamel pin). Fitur filter dinamis dan detail modal memudahkan pengguna melihat spesifikasi produk dan kisaran harga.
 
-1. **Push Proyek ke GitHub/GitLab/Bitbucket**
-   Pastikan semua perubahan kode terbaru telah di-commit dan di-push ke repositori Git Anda.
+2. **Kustomisasi Mandiri Berbasis 3D (3D Customizer)**:
+   Fitur utama platform ini adalah generator 3D interaktif. Pengguna dapat mengunggah desain logo atau gambar mereka sendiri dalam format gambar (PNG transparan sangat direkomendasikan). Sistem akan memproses gambar tersebut dan melakukan ekstrusi 3D secara instan. Pengguna dapat menyesuaikan bentuk bingkai (Custom, Circle, Rounded, Heart) serta jenis material logam (Gold, Silver, Black, Rose Gold).
 
-2. **Hubungkan ke Vercel**
-   - Buka dashboard [Vercel](https://vercel.com) dan masuk ke akun Anda.
-   - Klik tombol **"Add New..."** lalu pilih **"Project"**.
-   - Cari dan pilih repositori Git proyek `enamelist-mvp` ini, lalu klik **"Import"**.
+3. **Pemesanan dan Konversi (WhatsApp Integration)**:
+   Setelah memvisualisasikan produk dalam bentuk 3D atau memilih dari katalog, pengguna dapat melakukan pemesanan dengan menekan tombol order. Sistem akan mengarahkan pengguna langsung ke kontak admin via WhatsApp. Model pemesanan berbasis chat ini dipilih untuk mempermudah konsultasi desain lebih lanjut, negosiasi harga untuk pesanan massal (B2B), serta meminimalkan friksi administrasi bagi konsumen individu (B2C). Hal ini juga mendukung pendekatan "no minimum order" yang ramah bagi kantong pelajar.
 
-3. **Konfigurasi Project Settings (Otomatis)**
-   Vercel akan mendeteksi proyek Anda sebagai aplikasi statis dengan `package.json`. Pengaturan berikut akan terdeteksi otomatis:
-   - **Framework Preset**: `Other` (atau `None`)
-   - **Build Command**: `npm run build` (menjalankan perintah kompilasi Tailwind CSS)
-   - **Output Directory**: `.` (direktori utama proyek)
+## Rekayasa Teknologi (Tech Stack)
 
-4. **Klik "Deploy"**
-   Tunggu proses build selesai dalam beberapa detik, dan landing page ENAMELIST Anda siap diakses secara online!
+Aplikasi ini dibangun menggunakan arsitektur frontend statis yang dioptimalkan untuk performa tinggi, interaktivitas, dan skalabilitas:
 
----
+* **Antarmuka Pengguna (UI/UX)**:
+  * **HTML5 & Vanilla JavaScript (ES6+)**: Memastikan logika aplikasi berjalan ringan tanpa overhead dari framework tambahan.
+  * **Tailwind CSS**: Digunakan untuk membangun desain responsif, modern, dan mendukung mode gelap (Dark Mode). File CSS dikompilasi secara statis untuk produksi guna meningkatkan performa pemuatan halaman dan SEO (tidak menggunakan CDN).
 
-## 🛠️ Pembaruan yang Telah Dilakukan
+* **Visualisasi 3D (WebGL)**:
+  * **Three.js & OrbitControls**: Pustaka utama untuk merender lingkungan 3D secara real-time di browser melalui WebGL. Fitur ini mencakup kontrol kamera interaktif (rotasi dan zoom) serta pengaturan pencahayaan multi-arah (Ambient, Directional, dan Rim/Spec Light) untuk memberikan efek kilau logam realistis pada produk keychain.
 
-Kami telah melakukan beberapa optimasi penting agar proyek siap untuk dideploy dengan performa terbaik:
+* **Pemrosesan Gambar dan Algoritma**:
+  * **Marching Squares**: Digunakan untuk melacak kontur/siluet luar dari gambar PNG transparan yang diunggah pengguna secara presisi pada level piksel.
+  * **Ramer-Douglas-Peucker (RDP)**: Algoritma penyederhanaan kurva yang mereduksi jumlah simpul (vertices) hasil pelacakan kontur agar geometri 3D dapat diekstrusi dengan efisien tanpa membebani performa browser.
+  * **Chaikin's Corner Cutting**: Algoritma penghalusan sudut untuk memastikan tepi potongan logam gantungan kunci melengkung dengan alami dan estetis.
+  * **Dynamic UV Mapping**: Algoritma pemetaan tekstur untuk menyinkronkan posisi gambar yang diunggah agar menempel dengan presisi pada permukaan 3D hasil ekstrusi.
 
-1. **Build Automation (`package.json`)**:
-   - Menambahkan script `"build": "npm run build:css"` di dalam `package.json`. Vercel akan otomatis mendeteksi script ini dan mengompilasi CSS saat deployment berlangsung.
+* **Infrastruktur dan Deployment**:
+  * **Node.js & NPM**: Digunakan sebagai lingkungan pengembangan lokal dan manajemen build tools.
+  * **Vercel**: Platform hosting dengan sistem integrasi CI/CD otomatis untuk deployment statis yang cepat dan andal.
 
-2. **Menghapus Tailwind Play CDN**:
-   - Sebelumnya, halaman menggunakan `<script src="https://cdn.tailwindcss.com"></script>` yang memperlambat pemuatan halaman (karena browser harus memproses class Tailwind secara dinamis).
-   - Sekarang, halaman langsung memuat stylesheet hasil kompilasi `<link rel="stylesheet" href="css/tailwind.css">` yang jauh lebih cepat, SEO-friendly, dan direkomendasikan untuk produksi.
+## Struktur Direktori Proyek
 
-3. **Sinkronisasi Palette Warna Pastel**:
-   - Memperbaiki ketidaksesuaian warna di mana konfigurasi CDN sebelumnya berbeda dengan `tailwind.config.cjs` dan `css/style.css`.
-   - Semua warna pastel (seperti `pastel-pink`, `pastel-blue`, dll.) kini telah disinkronkan secara konsisten menggunakan kode warna pastel asli yang cerah dan estetis.
+```text
+enamelist-mvp/
+├── assets/             # Aset gambar, logo, dan demonstrasi produk
+├── css/                # Stylesheet proyek, termasuk file kompilasi Tailwind
+├── data/               # File JSON data produk katalog
+├── doc/                # Dokumentasi tambahan proyek
+├── js/                 # Logika JavaScript aplikasi
+│   ├── script.js           # Manajemen interaksi UI, tema, katalog, dan alur unggah file
+│   └── three-generator.js  # Generator 3D, pemrosesan algoritma kontur, dan rendering WebGL
+├── index.html          # Halaman utama aplikasi (Landing page dan UI customizer)
+├── package.json        # Konfigurasi dependensi dan skrip build npm
+├── tailwind.config.cjs # Konfigurasi kustomisasi kelas Tailwind CSS
+└── vercel.json         # Konfigurasi deployment Vercel
+```
 
----
+## Pengembangan Lokal (Local Development)
 
-## 💻 Pengembangan Lokal
+Aplikasi ini membutuhkan server lokal untuk berjalan dengan baik karena kebijakan keamanan browser (CORS) saat memuat file JSON data katalog produk secara lokal.
 
-Karena aplikasi ini menggunakan `fetch` untuk memuat data produk dari berkas `data/products.json`, Anda **tidak bisa** langsung membukanya secara offline melalui `file://` di browser (karena kebijakan CORS browser). Anda harus menjalankannya melalui server lokal.
+### Langkah Persiapan:
 
-Ikuti langkah-langkah berikut:
-
-1. **Instal Dependensi**:
+1. Pastikan Anda telah menginstal Node.js di sistem Anda.
+2. Instal semua dependensi proyek:
    ```bash
    npm install
    ```
 
-2. **Jalankan Server Lokal**:
-   Jalankan perintah berikut untuk mengaktifkan server pengembangan lokal:
-   ```bash
-   npm run dev
-   ```
-   Aplikasi akan berjalan dan dapat diakses melalui browser di alamat yang tertera (biasanya `http://localhost:3000`).
+### Menjalankan Server Pengembangan:
 
-3. **Jalankan Tailwind Compiler (Mode Watch)**:
-   Jika Anda sedang mengubah tampilan/desain, buka terminal baru dan jalankan perintah berikut agar Tailwind mendeteksi perubahan kelas secara real-time:
-   ```bash
-   npm run watch:css
-   ```
+Jalankan perintah berikut untuk mengaktifkan server lokal:
+```bash
+npm run dev
+```
+Aplikasi akan dapat diakses secara default di alamat `http://localhost:3000` atau port lain yang tertera di terminal Anda.
 
-4. **Kompilasi Produksi Secara Manual**:
-   Untuk melakukan kompilasi manual Tailwind CSS sebelum deploy atau untuk build produksi:
-   ```bash
-   npm run build
-   ```
+### Kompilasi Tailwind CSS secara Real-time:
+
+Jika Anda melakukan modifikasi pada kelas CSS atau antarmuka HTML, jalankan compiler Tailwind dalam mode observasi (watch mode) di terminal terpisah:
+```bash
+npm run watch:css
+```
+
+### Build Produksi:
+
+Untuk melakukan kompilasi manual seluruh file CSS sebelum didistribusikan:
+```bash
+npm run build
+```
+
+## Panduan Deployment ke Vercel
+
+Proyek ini telah dikonfigurasi untuk deployment instan di platform Vercel dengan deteksi otomatis:
+
+1. **Hubungkan Repositori ke Vercel**:
+   Hubungkan repositori Git proyek ini ke akun Vercel Anda.
+
+2. **Konfigurasi Project Settings**:
+   Vercel akan mendeteksi file `package.json` dan secara otomatis mengonfigurasi pengaturan build berikut:
+   * **Framework Preset**: Other / None
+   * **Build Command**: `npm run build`
+   * **Output Directory**: `.` (direktori utama)
+
+3. **Deploy**:
+   Tekan tombol Deploy. Proses build akan secara otomatis mengompilasi CSS menggunakan skrip NPM dan mempublikasikan landing page Anda dalam beberapa detik.
